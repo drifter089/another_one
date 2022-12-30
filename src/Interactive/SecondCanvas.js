@@ -12,7 +12,7 @@ function Pointer({ vec = new THREE.Vector3() }) {
   useFrame(({ mouse, viewport }, delta) => {
     easing.damp3(
       vec,
-      [(mouse.x * viewport.width) / 6, (mouse.y * viewport.height) / 6, 0],
+      [(mouse.x * viewport.width) / 2, (mouse.y * viewport.height) / 2, 0],
       0.1,
       delta,
       Infinity
