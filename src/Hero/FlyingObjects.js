@@ -23,6 +23,9 @@ function FlyingObjects() {
     return () => clearInterval(interval);
   }, [count]);
 
+  /**
+   *
+   */
   const finalObjects = useMemo(() => {
     const cubes = [];
     // totl will be 5 times

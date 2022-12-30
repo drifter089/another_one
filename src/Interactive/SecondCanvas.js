@@ -63,7 +63,7 @@ export default function SecondCanvas() {
         state.scene.backgroundBlurriness = 0.4;
       }}
     >
-      <ambientLight intensity={1} />
+      {/* <ambientLight intensity={1} />
       <spotLight
         intensity={0.5}
         angle={0.2}
@@ -76,12 +76,12 @@ export default function SecondCanvas() {
         intensity={10}
         position={[-10, -10, -10]}
         color="purple"
-      />
+      /> */}
       <Physics gravity={[0, 2, 0]}>
         <ObjectsSphere />
         <Pointer />
       </Physics>
-      <Effects />
+      {/* <Effects /> */}
     </Canvas>
   );
 }
