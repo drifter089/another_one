@@ -23,7 +23,7 @@ function ObjectsSphere({
         vec
           .copy(body.translation())
           .normalize()
-          .multiplyScalar(-800 * delta)
+          .multiplyScalar(-900 * delta)
       );
     });
   });

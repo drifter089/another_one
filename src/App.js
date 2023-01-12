@@ -6,13 +6,17 @@ import ImpossibleCube from "./FoudDimentional/ImpossibleCube";
 import { Canvas } from "@react-three/fiber";
 import ShaderPlane from "./ShaderPlane/ShaderPlane";
 import { OrbitControls } from "@react-three/drei";
+import Lobby from "./Opening/Lobby";
+import PixelDance from "./PixelDance/PixelDance";
 
 function App() {
   return (
     <>
-      {/* <MainCanvas /> */}
-      {/* <SecondCanvas /> */}
-      <Canvas
+      <PixelDance />
+      {/* <Lobby /> */}
+      {/* <MainCanvas />
+      <SecondCanvas /> */}
+      {/* <Canvas
         style={{
           position: "fixed",
           top: 0,
@@ -24,10 +28,11 @@ function App() {
         shadows
         camera={{ position: [0, 0, 20], fov: 35, near: 1, far: 50 }}
       >
-        {/* <ImpossibleCube /> */}
-        <ShaderPlane />
+        <ImpossibleCube />
+        {/* tweak   */}
+      {/* <ShaderPlane /> 
         <OrbitControls />
-      </Canvas>
+      </Canvas> */}
     </>
   );
 }

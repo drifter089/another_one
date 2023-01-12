@@ -12,7 +12,7 @@ function Pointer({ vec = new THREE.Vector3() }) {
   useFrame(({ mouse, viewport }, delta) => {
     easing.damp3(
       vec,
-      [(mouse.x * viewport.width) / 2, (mouse.y * viewport.height) / 2, 0],
+      [(mouse.x * viewport.width) / 4, (mouse.y * viewport.height) / 4, 0],
       0.1,
       delta,
       Infinity
@@ -50,11 +50,11 @@ export default function SecondCanvas() {
   return (
     <Canvas
       style={{
-        position: "fixed",
+        position: "staic",
         top: 0,
         left: 0,
         width: "100%",
-        height: "100%",
+        height: "100vh",
         zIndex: -1,
       }}
       shadows

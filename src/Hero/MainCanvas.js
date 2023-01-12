@@ -15,11 +15,11 @@ const MainCanvas = () => {
     <Canvas
       //   className="webgl"
       style={{
-        position: "fixed",
+        position: "staic",
         top: 0,
         left: 0,
         width: "100%",
-        height: "100%",
+        height: "100vh",
         zIndex: -1,
       }}
       ref={temp}

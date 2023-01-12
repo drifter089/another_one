@@ -3,10 +3,10 @@ import { Text3D } from "@react-three/drei";
 import fontFile from "../assets/fonts/Secular.json";
 
 const CenterText = (props) => {
-  const [wordsArr, setWordsArr] = useState(["THREE", "MEDIUM", "WORDS"]);
+  const [wordsArr, setWordsArr] = useState(["AKSHAT", "MITTAL", "DEVELOPER"]);
   const config = useMemo(
     () => ({
-      size: 1,
+      size: 1.2,
       height: 0.3,
       curveSegments: 15,
       bevelEnabled: true,
@@ -20,18 +20,18 @@ const CenterText = (props) => {
   const elems = useMemo(() => {
     return (
       <>
-        <Text3D {...config} font={fontFile} key={1} position={[-1.6, 1.5, 0]}>
+        <Text3D {...config} font={fontFile} key={1} position={[-2.5, 1.5, 0]}>
           {wordsArr[0]}
           <meshNormalMaterial />
         </Text3D>
-        <Text3D {...config} font={fontFile} key={2} position={[-2, 0, 0]}>
+        <Text3D {...config} font={fontFile} key={2} position={[-2.5, 0, 0]}>
           {wordsArr[1]}
           <meshNormalMaterial />
         </Text3D>
-        <Text3D {...config} font={fontFile} key={3} position={[-1.6, -1.5, 0]}>
+        {/* <Text3D {...config} font={fontFile} key={3} position={[-1.6, -1.5, 0]}>
           {wordsArr[2]}
           <meshNormalMaterial />
-        </Text3D>
+        </Text3D> */}
       </>
     );
   }, []);
