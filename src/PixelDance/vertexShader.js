@@ -26,7 +26,7 @@ void main() {
 
   gl_PointSize = 10.0-dist;
 
-  currSize = 10.0-dist;
+  currSize = 12.0-dist;
   
 }
 

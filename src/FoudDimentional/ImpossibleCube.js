@@ -1,8 +1,10 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
-import React, { useRef } from "react";
+import React, { useRef, useMemo } from "react";
 import { degToRad } from "three/src/math/MathUtils";
 import Portal from "./Portal";
+import { Text3D } from "@react-three/drei";
+import fontFile from "../assets/fonts/Secular.json";
 
 const ImpossibleCube = () => {
   const size = 5;
@@ -21,12 +23,53 @@ const ImpossibleCube = () => {
   const objectRef5 = useRef(null);
   const objectRef6 = useRef(null);
 
+  const skeleton = useRef(null);
+
   const boxGroupRef = useRef();
 
+  const config = useMemo(
+    () => ({
+      size: 1.2,
+      height: 0.3,
+      curveSegments: 15,
+      bevelEnabled: true,
+      bevelThickness: 0.2,
+      bevelSize: 0.1,
+      bevelOffset: 0,
+      bevelSegments: 4,
+    }),
+    []
+  );
+
   useFrame((state) => {
-    // boxGroupRef.current.rotation.x = Math.sin(state.clock.elapsedTime);
-    // boxGroupRef.current.rotation.y = Math.sin(state.clock.elapsedTime);
-    // boxGroupRef.current.rotation.z = Math.sin(state.clock.elapsedTime);
+    boxGroupRef.current.rotation.x = state.clock.elapsedTime * 0.3;
+    boxGroupRef.current.rotation.y = state.clock.elapsedTime * 0.3;
+    boxGroupRef.current.rotation.z = state.clock.elapsedTime * 0.3;
+
+    //
+    // objectRef1.current.rotation.x = state.clock.elapsedTime * 0.3;
+    // objectRef1.current.rotation.y = state.clock.elapsedTime * 0.5;
+    // objectRef1.current.rotation.z = state.clock.elapsedTime * 0.3;
+    //
+    objectRef2.current.rotation.x = state.clock.elapsedTime * 0.3;
+    objectRef2.current.rotation.y = state.clock.elapsedTime * 0.8;
+    objectRef2.current.rotation.z = state.clock.elapsedTime * 0.3;
+    //
+    objectRef3.current.rotation.x = state.clock.elapsedTime * 0.3;
+    objectRef3.current.rotation.y = state.clock.elapsedTime * 0.1;
+    objectRef3.current.rotation.z = state.clock.elapsedTime * 0.3;
+    //
+    objectRef4.current.rotation.x = state.clock.elapsedTime * 0.3;
+    objectRef4.current.rotation.y = state.clock.elapsedTime * 0.9;
+    objectRef4.current.rotation.z = state.clock.elapsedTime * 0.3;
+    //
+    objectRef5.current.rotation.x = state.clock.elapsedTime * 0.2;
+    objectRef5.current.rotation.y = state.clock.elapsedTime * 0.4;
+    objectRef5.current.rotation.z = state.clock.elapsedTime * 0.3;
+    //
+    objectRef6.current.rotation.x = state.clock.elapsedTime * 0.3;
+    objectRef6.current.rotation.y = state.clock.elapsedTime * 0.7;
+    objectRef6.current.rotation.z = state.clock.elapsedTime * 0.8;
   });
 
   return (
@@ -40,10 +83,20 @@ const ImpossibleCube = () => {
           size={size}
           stencilId={1}
         >
-          <mesh ref={objectRef1}>
+          <Text3D
+            {...config}
+            font={fontFile}
+            key={2}
+            position={[-1, -0.3, 0]}
+            ref={objectRef1}
+          >
+            {"4D"}
+            <meshNormalMaterial ref={materialRef1} />
+          </Text3D>
+          {/* <mesh ref={objectRef1}>
             <boxGeometry args={[2, 2, 2]} />
             <meshNormalMaterial ref={materialRef1} />
-          </mesh>
+          </mesh> */}
         </Portal>
         <Portal
           position={[0, 0, -size / 2]}
@@ -51,7 +104,7 @@ const ImpossibleCube = () => {
           size={size}
           stencilId={2}
         >
-          <mesh ref={objectRef1}>
+          <mesh ref={objectRef6}>
             <coneBufferGeometry args={[0.8, 1.3, 20, 2]} />
             <meshNormalMaterial ref={materialRef2} />
           </mesh>
@@ -104,7 +157,7 @@ const ImpossibleCube = () => {
             <meshNormalMaterial ref={materialRef6} />
           </mesh>
         </Portal>
-        <mesh ref={objectRef6}>
+        <mesh ref={skeleton}>
           <boxGeometry args={[5, 5, 5]} />
           <meshBasicMaterial color={"green"} wireframe />
         </mesh>

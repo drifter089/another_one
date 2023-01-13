@@ -56,7 +56,7 @@ function App() {
         camera={{ position: [0, 0, 20], fov: 35, near: 1, far: 50 }}
       >
         <ImpossibleCube />
-        {/* <OrbitControls /> */}
+        <OrbitControls />
       </Canvas>
     </>
   );

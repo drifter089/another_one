@@ -23,7 +23,7 @@ const CustomGeometryParticles = (props) => {
   // Generate our positions attributes array
   const particlesPosition = useMemo(() => {
     const positions = new Float32Array(count * 3);
-    const distance = 80;
+    const distance = 90;
 
     for (let i = 0; i < count; i++) {
       //   const theta = THREE.MathUtils.randFloatSpread(360);
