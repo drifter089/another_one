@@ -12,27 +12,52 @@ import PixelDance from "./PixelDance/PixelDance";
 function App() {
   return (
     <>
-      <PixelDance />
-      {/* <Lobby /> */}
-      {/* <MainCanvas />
-      <SecondCanvas /> */}
-      {/* <Canvas
+      <Canvas
         style={{
-          position: "fixed",
+          position: "staic",
           top: 0,
           left: 0,
           width: "100%",
-          height: "100%",
+          height: "100vh",
+          zIndex: -1,
+        }}
+        shadows
+        camera={{ position: [0, 0, 20], fov: 35, near: 1, far: 50 }}
+      >
+        <ShaderPlane />
+        {/* <OrbitControls /> */}
+      </Canvas>
+      <Canvas
+        camera={{ position: [0, 0, 20] }}
+        style={{
+          position: "staic",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100vh",
+          zIndex: -1,
+        }}
+      >
+        <PixelDance />
+      </Canvas>
+      {/* <Lobby /> */}
+      <MainCanvas />
+      <SecondCanvas />
+      <Canvas
+        style={{
+          position: "staic",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100vh",
           zIndex: -1,
         }}
         shadows
         camera={{ position: [0, 0, 20], fov: 35, near: 1, far: 50 }}
       >
         <ImpossibleCube />
-        {/* tweak   */}
-      {/* <ShaderPlane /> 
-        <OrbitControls />
-      </Canvas> */}
+        {/* <OrbitControls /> */}
+      </Canvas>
     </>
   );
 }

@@ -110,7 +110,7 @@ const ImpossibleCube = () => {
         </mesh>
       </group>
 
-      <OrbitControls />
+      {/* <OrbitControls /> */}
     </>
   );
 };

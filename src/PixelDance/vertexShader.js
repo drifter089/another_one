@@ -3,34 +3,31 @@ uniform float uTime;
 uniform float uRadius;
 uniform vec2 mousePos; 
 
-// Source: https://github.com/dmnsgn/glsl-rotate/blob/main/rotation-3d-y.glsl.js
-// mat3 rotation3dY(float angle) {
-//   float s = sin(angle);
-//   float c = cos(angle);
-//   return mat3(
-//     c, 0.0, -s,
-//     0.0, 1.0, 0.0,
-//     s, 0.0, c
-//   );
-// }
+varying float currSize;
+
 
 
 void main() {
-  // float distanceFactor = pow(uRadius - distance(position, vec3(0.0)), 2.0);
-  // vec3 particlePosition = position * rotation3dY(uTime * 0.2 * distanceFactor);
   vec3 particlePosition = position ;
-  
-  // particlePosition.y=(-0.16*(particlePosition.x-0.0)*(particlePosition.x-0.0))-1.0;
-  
-  particlePosition.y=(particlePosition.x-mousePos.x)*(particlePosition.x-mousePos.x)/50.0+(particlePosition.z-mousePos.y)*(particlePosition.z-mousePos.y)/100.0;
+
+  float dist = distance(vec2(position.x*-1.0,position.y),mousePos);
+
+    particlePosition.x += sin(particlePosition.x * 5.0 + uTime * 3.0) * 0.1;
+  particlePosition.z += sin(particlePosition.y * 6.0 + uTime * 2.0) * 0.1;
+  particlePosition.y += sin(particlePosition.y * 6.0 + uTime * 2.0) * 0.1;
+
+  particlePosition.z +=(10.0-dist)/3.0;
 
   vec4 modelPosition = modelMatrix * vec4(particlePosition, 1.0);
   vec4 viewPosition = viewMatrix * modelPosition;
   vec4 projectedPosition = projectionMatrix * viewPosition;
 
   gl_Position = projectedPosition;
-  // gl_PointSize = 3.0+(particlePosition.y);
-  gl_PointSize = 3.0;
+
+  gl_PointSize = 10.0-dist;
+
+  currSize = 10.0-dist;
+  
 }
 
 `;
