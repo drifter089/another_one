@@ -11,7 +11,7 @@ function ObjectsSphere({
   const mainState = useThree();
 
   useEffect(() => {
-    mainState.gl.setClearColor(new THREE.Color(0x000000));
+    mainState.gl.setClearColor(new THREE.Color(0x000000), 0);
     mainState.camera.position.z = 40;
   }, []);
 

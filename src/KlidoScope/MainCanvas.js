@@ -4,7 +4,6 @@ import React, { useRef } from "react";
 import CameraControl from "./CameraControl";
 import CenterText from "./CenterText";
 import FlyingObjects from "./FlyingObjects";
-import "./MainCanvas.css";
 
 const MainCanvas = () => {
   const temp = useRef(null);
@@ -16,8 +15,6 @@ const MainCanvas = () => {
       //   className="webgl"
       style={{
         position: "staic",
-        top: 0,
-        left: 0,
         width: "100%",
         height: "100vh",
         zIndex: -1,
