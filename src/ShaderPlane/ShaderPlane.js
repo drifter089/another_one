@@ -43,7 +43,7 @@ const ShaderPlane = () => {
 
   return (
     <mesh ref={planeRef}>
-      <planeGeometry args={[20, 20]} />
+      <planeGeometry args={[30, 30]} />
       {/* <meshNormalMaterial /> */}
       <shaderMaterial attach="material" args={[SphereShaderMaterial]} />
     </mesh>

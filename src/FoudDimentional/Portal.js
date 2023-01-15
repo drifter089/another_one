@@ -85,6 +85,8 @@ const Portal = (props) => {
         <planeGeometry args={[Portalsize, Portalsize]} />
         <meshBasicMaterial color={"pink"} ref={portaPlaneMatRef} />
       </mesh>
+
+      <ambientLight />
     </>
   );
 };

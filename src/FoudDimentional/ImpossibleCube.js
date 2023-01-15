@@ -5,6 +5,7 @@ import { degToRad } from "three/src/math/MathUtils";
 import Portal from "./Portal";
 import { Text3D } from "@react-three/drei";
 import fontFile from "../assets/fonts/Secular.json";
+import { Model } from "./Model";
 
 const ImpossibleCube = () => {
   const size = 5;
@@ -157,13 +158,10 @@ const ImpossibleCube = () => {
             <meshNormalMaterial ref={materialRef6} />
           </mesh>
         </Portal>
-        <mesh ref={skeleton}>
-          <boxGeometry args={[5, 5, 5]} />
-          <meshBasicMaterial color={"green"} wireframe />
-        </mesh>
+        <Model scale={[2.5, 2.5, 2.5]} ref={skeleton} />
       </group>
 
-      {/* <OrbitControls /> */}
+      <OrbitControls enableDamping={true} enableZoom={false} />
     </>
   );
 };

@@ -12,6 +12,7 @@ import Hero from "./Hero/Hero";
 import PixelPerfectionist from "./PixelPerfectionist/PixelPerfectionist";
 import InteractiveLove from "./InteractiveLove/InteractiveLove";
 import EasterCube from "./EasterCube/EasterCube";
+import BufferTrigs from "./Buffer2DText/BufferTrigs";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
       <EasterCube />
       {/* <Lobby /> */}
       {/* <MainCanvas /> */}
-      {/* <SecondCanvas /> */}
+      {/* <BufferTrigs /> */}
     </>
   );
 }

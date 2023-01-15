@@ -4,32 +4,20 @@ import ImpossibleCube from "../FoudDimentional/ImpossibleCube";
 
 const EasterCube = () => {
   return (
-    <>
+    <div className="pannelContainer">
+      <div className="center purpleText">I HAVE WORKED WITH 2D 3D 4D ?????</div>
       <div
+        className="canvasStreach"
         style={{
-          position: "staic",
-          width: "100vw",
-          height: "100vh",
-          zIndex: 1,
+          zIndex: 2,
         }}
       >
-        <div className="center">I HAVE WORKED WITH 2D 3D 4D ?????</div>
+        <Canvas camera={{ position: [0, 0, 20] }}>
+          <ImpossibleCube />
+          {/* <OrbitControls /> */}
+        </Canvas>
       </div>
-
-      <Canvas
-        camera={{ position: [0, 0, 20] }}
-        style={{
-          position: "absolute",
-          top: "300%",
-          width: "100vw",
-          height: "100vh",
-          zIndex: -2,
-        }}
-      >
-        <ImpossibleCube />
-        {/* <OrbitControls /> */}
-      </Canvas>
-    </>
+    </div>
   );
 };
 

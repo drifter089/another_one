@@ -29,7 +29,7 @@ const CustomGeometryParticles = (props) => {
       //   const theta = THREE.MathUtils.randFloatSpread(360);
       //   const phi = THREE.MathUtils.randFloatSpread(360);
 
-      let x = distance * Math.random() - distance / 2;
+      let x = (distance * Math.random() - distance / 2) * 1.5;
       let y = distance * Math.random() - distance / 2;
       let z = 0;
 
@@ -56,7 +56,7 @@ const CustomGeometryParticles = (props) => {
 
   useEffect(() => {
     if (points.current.material.uniforms) {
-      let temp = 60;
+      let temp = 35;
       // if (temp > 100 || temp < -100) {
       //   temp = 0;
       // }
@@ -105,7 +105,7 @@ const PixelDance = () => {
   return (
     <>
       <ambientLight intensity={0.5} />
-      <CustomGeometryParticles count={10000} />
+      <CustomGeometryParticles count={12000} />
       {/* <OrbitControls /> */}
     </>
   );

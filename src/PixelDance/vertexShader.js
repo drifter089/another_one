@@ -24,7 +24,7 @@ void main() {
 
   gl_Position = projectedPosition;
 
-  gl_PointSize = 10.0-dist;
+  gl_PointSize = 12.0-dist;
 
   currSize = 12.0-dist;
   

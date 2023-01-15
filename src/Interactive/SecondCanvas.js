@@ -25,6 +25,8 @@ function Pointer({ vec = new THREE.Vector3() }) {
           color="green"
           roughness={0}
           envMapIntensity={0.2}
+          transparent={true}
+          opacity={0}
         />
       </Sphere>
     </RigidBody>

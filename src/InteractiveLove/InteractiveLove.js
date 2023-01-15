@@ -4,35 +4,33 @@ import { Canvas } from "@react-three/fiber";
 
 const InteractiveLove = () => {
   return (
-    <>
+    <div className="pannelContainer">
       <div
+        className="center "
         style={{
-          position: "staic",
-          width: "100vw",
-          height: "100vh",
-          zIndex: 1,
+          top: "20%",
         }}
       >
-        <div className="center">LOVE MAKING THINGS INTERACTIVE</div>
+        WHO ENJOYS MAKING THINGS
+        <div style={{ fontSize: "150px" }}>INTERACTIVE</div>
       </div>
-
-      <Canvas
+      <div
+        className="canvasStreach"
         style={{
-          position: "absolute",
-          top: "200%",
-          width: "100vw",
-          height: "100vh",
           zIndex: 1,
         }}
-        shadows
-        camera={{ position: [0, 0, 20], fov: 35, near: 1, far: 50 }}
-        onCreated={(state) => {
-          state.scene.backgroundBlurriness = 0.4;
-        }}
       >
-        <SecondCanvas />
-      </Canvas>
-    </>
+        <Canvas
+          shadows
+          camera={{ position: [0, -2, 20], fov: 35, near: 1, far: 50 }}
+          onCreated={(state) => {
+            state.scene.backgroundBlurriness = 0.4;
+          }}
+        >
+          <SecondCanvas />
+        </Canvas>
+      </div>
+    </div>
   );
 };
 
