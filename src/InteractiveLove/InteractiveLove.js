@@ -22,7 +22,7 @@ const InteractiveLove = () => {
       >
         <Canvas
           shadows
-          camera={{ position: [0, -2, 20], fov: 35, near: 1, far: 50 }}
+          camera={{ position: [0, -2, 16], fov: 35, near: 1, far: 50 }}
           onCreated={(state) => {
             state.scene.backgroundBlurriness = 0.4;
           }}

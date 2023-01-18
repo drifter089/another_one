@@ -4,7 +4,7 @@ import * as THREE from "three";
 import { InstancedRigidBodies } from "@react-three/rapier";
 
 function ObjectsSphere({
-  count = 15,
+  count = 18,
   vec = new THREE.Vector3(),
   rfs = THREE.MathUtils.randFloatSpread,
 }) {
@@ -74,7 +74,7 @@ function ObjectsSphere({
         </instancedMesh>
       );
     }
-    for (let i = 0; i < numPerObj; i++) {
+    for (let i = 0; i < numPerObj + 2; i++) {
       const ref = React.createRef(null);
       tempKey++;
       cubes.push(

@@ -12,9 +12,9 @@ void main() {
 
   float dist = distance(vec2(position.x*-1.0,position.y),mousePos);
 
-    particlePosition.x += sin(particlePosition.x * 5.0 + uTime * 3.0) * 0.1;
-  particlePosition.z += sin(particlePosition.y * 6.0 + uTime * 2.0) * 0.1;
-  particlePosition.y += sin(particlePosition.y * 6.0 + uTime * 2.0) * 0.1;
+  //   particlePosition.x += sin(particlePosition.x * 5.0 + uTime * 3.0) * 0.1;
+  // particlePosition.z += sin(particlePosition.y * 6.0 + uTime * 2.0) * 0.1;
+  // particlePosition.y += sin(particlePosition.y * 6.0 + uTime * 2.0) * 0.1;
 
   particlePosition.z +=(10.0-dist)/3.0;
 
@@ -24,9 +24,9 @@ void main() {
 
   gl_Position = projectedPosition;
 
-  gl_PointSize = 12.0-dist;
+  gl_PointSize = 22.0-dist;
 
-  currSize = 12.0-dist;
+  currSize = 38.0-dist;
   
 }
 

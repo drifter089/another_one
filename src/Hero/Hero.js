@@ -20,32 +20,32 @@ const Hero = () => {
     if (!once.current) {
       console.log("wvre");
       // const rand
-      gsap.from(
-        [
-          toptext.current,
-          boldText1.current,
-          boldText2.current,
-          boldText3.current,
-        ],
+      // gsap.from(
+      //   [
+      //     toptext.current,
+      //     boldText1.current,
+      //     boldText2.current,
+      //     boldText3.current,
+      //   ],
 
-        {
-          y: "100vh",
-          stagger: 0.1,
-          rotateX: 20,
-          rotateY: 40,
-          rotateZ: 80,
-          scrollTrigger: {
-            trigger: mainContainer.current,
-            markers: true,
+      //   {
+      //     y: "100vh",
+      //     stagger: 0.1,
+      //     rotateX: 20,
+      //     rotateY: 40,
+      //     rotateZ: 80,
+      //     scrollTrigger: {
+      //       trigger: mainContainer.current,
+      //       markers: true,
 
-            start: "100% 100%",
-            end: "100% 0%",
-            pin: mainContainer.current,
-            scrub: 2,
-            // toggleActions: "restart restart none none",
-          },
-        }
-      );
+      //       start: "100% 100%",
+      //       end: "100% 0%",
+      //       pin: mainContainer.current,
+      //       scrub: 2,
+      //       // toggleActions: "restart restart none none",
+      //     },
+      //   }
+      // );
       // gsap.to(
       //   [
       //     toptext.current,
@@ -78,29 +78,36 @@ const Hero = () => {
   useLayoutEffect(() => {});
 
   return (
-    <div className="pannelContainer" ref={mainContainer}>
-      <div className="center" style={{ top: "25%" }}>
-        <div ref={toptext}>SAY HI TO YOUR</div>
-        <div style={{ fontSize: "130px", paddingTop: "30px" }} ref={boldText1}>
-          NEWEST
+    <>
+      <div className="pannelContainer" ref={mainContainer}>
+        <div className="center" style={{ top: "36%" }}>
+          <div ref={toptext}>Meet your next creative developer.</div>
         </div>
-        <div style={{ fontSize: "130px", paddingTop: "30px" }} ref={boldText2}>
-          TEAM
-        </div>
-        <div style={{ fontSize: "130px", paddingTop: "30px" }} ref={boldText3}>
-          MEMBER
+        {/* canvas div */}
+        <div ref={canvasRef} className="canvasStreach">
+          <Canvas
+            className="canvasStreach"
+            style={{
+              // opacity: 0.8,
+              height: "200vh",
+            }}
+            camera={{ position: [0, 0, 120], fov: 35, near: 0.1, far: 120 }}
+          >
+            <ShaderPlane />
+          </Canvas>
         </div>
       </div>
-      {/* canvas div */}
-      <div ref={canvasRef} className="canvasStreach">
-        <Canvas
-          className="canvasStreach"
-          camera={{ position: [0, 0, 20], fov: 35, near: 1, far: 50 }}
-        >
-          <ShaderPlane />
-        </Canvas>
+      <div
+        className="pannelContainer"
+        style={{
+          backgroundImage:
+            "linear-gradient(180deg, rgba(255,255,255,0),rgba(0,0,0,1))",
+          zIndex: 10,
+        }}
+      >
+        {/* ewgfeg */}
       </div>
-    </div>
+    </>
   );
 };
 

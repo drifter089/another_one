@@ -22,6 +22,18 @@ void main()
       pos.y += cos(length(mousePos - uv) * 3.14 * 1.0) * 0.5; // Modify the y position based on the distance to the mouse position
       pos.z += sin(length(mousePos - uv) * 3.14 * 1.0  * 0.5) * 0.5; // Modify the z position based on the distance to the mouse position
 
+    // pos.y=cos(mousePos.x * 0.1) * sin(mousePos.y * 0.1) * 0.1;
+    // pos.z=sin(mousePos.x * 0.1) * cos(mousePos.y * 0.1) * 0.1;
+    // pos.x=cos(mousePos.x * 0.1) * sin(mousePos.y * 0.1) * 0.1;
+
+    
+  // float dist = distance(vec2(position.x*-1.0,position.y),mousePos);
+
+
+  // pos.z +=sin(u_time*0.2+position.x);
+
+    // pos.z=mousePos.x+10.0;
+
 
     gl_Position = projectionMatrix * modelViewMatrix * vec4( pos, 1.0 );
 

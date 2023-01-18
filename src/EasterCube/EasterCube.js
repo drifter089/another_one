@@ -9,7 +9,7 @@ const EasterCube = () => {
       <div
         className="canvasStreach"
         style={{
-          zIndex: 2,
+          zIndex: -2,
         }}
       >
         <Canvas camera={{ position: [0, 0, 20] }}>

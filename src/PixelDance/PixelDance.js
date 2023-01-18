@@ -28,12 +28,16 @@ const CustomGeometryParticles = (props) => {
     for (let i = 0; i < count; i++) {
       //   const theta = THREE.MathUtils.randFloatSpread(360);
       //   const phi = THREE.MathUtils.randFloatSpread(360);
+      for (let j = 0; j < count; j++) {
+        // let x = (distance * Math.random() - distance / 2) * 1.5;
+        // let y = distance * Math.random() - distance / 2;
+        // let z = 0;
 
-      let x = (distance * Math.random() - distance / 2) * 1.5;
-      let y = distance * Math.random() - distance / 2;
-      let z = 0;
-
-      positions.set([x, y, z], i * 3);
+        let x = i;
+        let y = j;
+        let z = 0;
+        positions.set([x, y, z], i * 3);
+      }
     }
 
     return positions;
@@ -77,14 +81,15 @@ const CustomGeometryParticles = (props) => {
 
   return (
     <points ref={points}>
-      <bufferGeometry>
+      {/* <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
           count={particlesPosition.length / 3}
           array={particlesPosition}
           itemSize={3}
         />
-      </bufferGeometry>
+      </bufferGeometry> */}
+      <planeGeometry args={[90, 80, 64, 64]} />
       {/* <pointsMaterial
         size={0.012}
         color="#5786F5"
@@ -105,7 +110,7 @@ const PixelDance = () => {
   return (
     <>
       <ambientLight intensity={0.5} />
-      <CustomGeometryParticles count={12000} />
+      <CustomGeometryParticles count={120} />
       {/* <OrbitControls /> */}
     </>
   );

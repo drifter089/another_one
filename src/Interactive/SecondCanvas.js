@@ -11,7 +11,7 @@ function Pointer({ vec = new THREE.Vector3() }) {
   useFrame(({ mouse, viewport }, delta) => {
     easing.damp3(
       vec,
-      [(mouse.x * viewport.width) / 4, (mouse.y * viewport.height) / 4, 0],
+      [mouse.x * viewport.width, mouse.y * viewport.height, 0],
       0.1,
       delta,
       Infinity
@@ -20,13 +20,13 @@ function Pointer({ vec = new THREE.Vector3() }) {
   });
   return (
     <RigidBody type="kinematicPosition" colliders="ball" ref={ref}>
-      <Sphere args={[0.5]}>
-        <meshStandardMaterial
-          color="green"
+      <Sphere args={[0.6]}>
+        <meshBasicMaterial
+          color="pink"
           roughness={0}
           envMapIntensity={0.2}
           transparent={true}
-          opacity={0}
+          opacity={1}
         />
       </Sphere>
     </RigidBody>
