@@ -6,12 +6,12 @@ import { Physics, RigidBody } from "@react-three/rapier";
 import { easing } from "maath";
 import ObjectsSphere from "./ObjectsSphere";
 
-function Pointer({ vec = new THREE.Vector3() }) {
+function Pointer({ vec = new THREE.Vector3(0, -2, 0) }) {
   const ref = useRef();
   useFrame(({ mouse, viewport }, delta) => {
     easing.damp3(
       vec,
-      [mouse.x * viewport.width, mouse.y * viewport.height, 0],
+      [(mouse.x * viewport.width) / 2, (mouse.y * viewport.height) / 2, 0],
       0.1,
       delta,
       Infinity
@@ -34,12 +34,6 @@ function Pointer({ vec = new THREE.Vector3() }) {
 }
 
 export default function SecondCanvas() {
-  // const mainState = useThree();
-
-  // useEffect(() => {
-  //   mainState.gl.setClearColor(new Color(0x000000));
-  //   mainState.camera.position.z = 25;
-  // }, []);
   return (
     <Physics gravity={[0, 2, 0]}>
       <ObjectsSphere />

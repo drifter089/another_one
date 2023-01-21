@@ -16,64 +16,37 @@ const Hero = () => {
 
   const once = useRef(false);
 
-  useEffect(() => {
-    if (!once.current) {
-      console.log("wvre");
-      // const rand
-      // gsap.from(
-      //   [
-      //     toptext.current,
-      //     boldText1.current,
-      //     boldText2.current,
-      //     boldText3.current,
-      //   ],
+  // useEffect(() => {
+  //   if (!once.current) {
+  //     gsap.from(
+  //       [
+  //         toptext.current,
+  //         boldText1.current,
+  //         boldText2.current,
+  //         boldText3.current,
+  //       ],
 
-      //   {
-      //     y: "100vh",
-      //     stagger: 0.1,
-      //     rotateX: 20,
-      //     rotateY: 40,
-      //     rotateZ: 80,
-      //     scrollTrigger: {
-      //       trigger: mainContainer.current,
-      //       markers: true,
+  //       {
+  //         y: "100vh",
+  //         stagger: 0.1,
+  //         rotateX: 20,
+  //         rotateY: 40,
+  //         rotateZ: 80,
+  //         scrollTrigger: {
+  //           trigger: mainContainer.current,
+  //           markers: true,
 
-      //       start: "100% 100%",
-      //       end: "100% 0%",
-      //       pin: mainContainer.current,
-      //       scrub: 2,
-      //       // toggleActions: "restart restart none none",
-      //     },
-      //   }
-      // );
-      // gsap.to(
-      //   [
-      //     toptext.current,
-      //     boldText1.current,
-      //     boldText2.current,
-      //     boldText3.current,
-      //   ],
-      //   {
-      //     y: "-100vh",
-      //     stagger: 0.1,
-      //     rotateX: 20,
-      //     rotateY: 40,
-      //     rotateZ: 80,
-      //     scrollTrigger: {
-      //       trigger: mainContainer.current,
-      //       markers: true,
-
-      //       start: "50% 50%",
-      //       end: "50% 0%",
-      //       pin: mainContainer.current,
-      //       scrub: 2,
-      //       // toggleActions: "restart restart none none",
-      //     },
-      //   }
-      // );
-      once.current = true;
-    }
-  }, []);
+  //           start: "200% 200%",
+  //           end: "200% 0%",
+  //           pin: mainContainer.current,
+  //           scrub: 2,
+  //           // toggleActions: "restart restart none none",
+  //         },
+  //       }
+  //     );
+  //     once.current = true;
+  //   }
+  // }, []);
 
   useLayoutEffect(() => {});
 
@@ -88,7 +61,7 @@ const Hero = () => {
           <Canvas
             className="canvasStreach"
             style={{
-              // opacity: 0.8,
+              opacity: 0.8,
               height: "200vh",
             }}
             camera={{ position: [0, 0, 120], fov: 35, near: 0.1, far: 120 }}
@@ -104,9 +77,7 @@ const Hero = () => {
             "linear-gradient(180deg, rgba(255,255,255,0),rgba(0,0,0,1))",
           zIndex: 10,
         }}
-      >
-        {/* ewgfeg */}
-      </div>
+      ></div>
     </>
   );
 };

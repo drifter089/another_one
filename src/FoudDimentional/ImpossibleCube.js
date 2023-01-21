@@ -1,13 +1,14 @@
 import { OrbitControls } from "@react-three/drei";
-import { Canvas, useFrame } from "@react-three/fiber";
-import React, { useRef, useMemo } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import React, { useRef, useMemo, useEffect } from "react";
 import { degToRad } from "three/src/math/MathUtils";
 import Portal from "./Portal";
 import { Text3D } from "@react-three/drei";
 import fontFile from "../assets/fonts/Secular.json";
 import { Model } from "./Model";
+import { Color } from "three";
 
-const ImpossibleCube = () => {
+function ImpossibleCube() {
   const size = 5;
 
   const materialRef1 = useRef(null);
@@ -41,6 +42,12 @@ const ImpossibleCube = () => {
     }),
     []
   );
+
+  const mainState = useThree();
+
+  useEffect(() => {
+    mainState.gl.setClearColor(new Color(0x000000), 0);
+  });
 
   useFrame((state) => {
     boxGroupRef.current.rotation.x = state.clock.elapsedTime * 0.3;
@@ -164,6 +171,6 @@ const ImpossibleCube = () => {
       <OrbitControls enableDamping={true} enableZoom={false} />
     </>
   );
-};
+}
 
 export default ImpossibleCube;

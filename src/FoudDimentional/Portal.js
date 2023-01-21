@@ -1,5 +1,5 @@
 import { useThree } from "@react-three/fiber";
-import React, { useEffect, useRef, useLayoutEffect } from "react";
+import React, { useEffect, useRef, useLayoutEffect, forwardRef } from "react";
 
 import {
   AlwaysStencilFunc,
@@ -10,7 +10,7 @@ import {
   Color,
 } from "three";
 
-const Portal = (props) => {
+const Portal = forwardRef(function Portal(props, ref) {
   const stencilConfig = {
     stencilZPass: ReplaceStencilOp,
     stencilZFail: KeepStencilOp,
@@ -83,12 +83,10 @@ const Portal = (props) => {
       {/* WINDOW to the world */}
       <mesh position={windowPosition} rotation={windowRotation}>
         <planeGeometry args={[Portalsize, Portalsize]} />
-        <meshBasicMaterial color={"pink"} ref={portaPlaneMatRef} />
+        <meshBasicMaterial color={"black"} ref={portaPlaneMatRef} />
       </mesh>
-
-      <ambientLight />
     </>
   );
-};
+});
 
 export default Portal;

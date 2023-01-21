@@ -19,7 +19,7 @@ const BufferTrigs = () => {
       //   const phi = THREE.MathUtils.randFloatSpread(360);
 
       let x = distance * Math.random() - distance / 2;
-      let y = distance * Math.random() - distance / 2;
+      let y = distance * Math.random() * 2;
       let z = distance * Math.random() - distance / 2;
 
       positions.set([x, y, z], i * 3);
@@ -53,14 +53,7 @@ const BufferTrigs = () => {
             itemSize={3}
           />
         </bufferGeometry>
-        <meshBasicMaterial>
-          <GradientTexture
-            stops={[0, 1, 0]} // As many stops as you want
-            colors={["blue", "hotpink", "blue"]} // Colors need to match the number of stops
-            size={1024} // Size is optional, default = 1024
-          />
-        </meshBasicMaterial>
-        {/* <MeshDistortMaterial distort={1} speed={10} wireframe={true} /> */}
+        <meshBasicMaterial color={"pink"} wireframe={true} />
       </mesh>
       <OrbitControls />
     </Canvas>

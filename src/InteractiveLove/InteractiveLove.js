@@ -11,8 +11,7 @@ const InteractiveLove = () => {
           top: "20%",
         }}
       >
-        WHO ENJOYS MAKING THINGS
-        <div style={{ fontSize: "150px" }}>INTERACTIVE</div>
+        WHO ENJOYS MAKING THINGS INTERACTIVE
       </div>
       <div
         className="canvasStreach"

@@ -19,8 +19,8 @@ function App() {
     <>
       <Hero />
       <PixelPerfectionist />
-      <InteractiveLove />
       <EasterCube />
+      <InteractiveLove />
       {/* <Lobby /> */}
       {/* <MainCanvas /> */}
       {/* <BufferTrigs /> */}
