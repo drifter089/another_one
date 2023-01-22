@@ -1,26 +1,52 @@
 import logo from "./logo.svg";
 import "./App.css";
-import MainCanvas from "./KlidoScope/MainCanvas";
-import SecondCanvas from "./Interactive/SecondCanvas";
-import ImpossibleCube from "./FoudDimentional/ImpossibleCube";
-import { Canvas } from "@react-three/fiber";
-import ShaderPlane from "./ShaderPlane/ShaderPlane";
-import { OrbitControls } from "@react-three/drei";
+
+import { useEffect, useRef } from "react";
+//
 import Lobby from "./Opening/Lobby";
-import PixelDance from "./PixelDance/PixelDance";
+import BufferTrigs from "./Buffer2DText/BufferTrigs";
+//
 import Hero from "./Hero/Hero";
 import PixelPerfectionist from "./PixelPerfectionist/PixelPerfectionist";
 import InteractiveLove from "./InteractiveLove/InteractiveLove";
 import EasterCube from "./EasterCube/EasterCube";
-import BufferTrigs from "./Buffer2DText/BufferTrigs";
+import AdventureMain from "./Adventures/AdventureMain";
+
+//
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const once = useRef(false);
+
+  useEffect(() => {
+    if (!once.current) {
+      once.current = true;
+      setTimeout(() => {
+        const myTimeline = gsap.timeline();
+
+        // ScrollTrigger.create({
+        //   animation: myTimeline,
+        //   trigger: mainContainer.current,
+        //   markers: true,
+        //   start: "200% 200%",
+        //   end: "200% 0%",
+        //   pin: mainContainer.current,
+        //   scrub: 2,
+        // });
+      }, 1000);
+    }
+  });
+
   return (
     <>
       <Hero />
+      <div className="pannelContainer"></div>
       <PixelPerfectionist />
       <EasterCube />
       <InteractiveLove />
+      <AdventureMain />
       {/* <Lobby /> */}
       {/* <MainCanvas /> */}
       {/* <BufferTrigs /> */}

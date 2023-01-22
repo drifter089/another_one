@@ -7,8 +7,12 @@ import { useNormalizedMousePosition } from "../components/normalizedMousePosHook
 
 import vertexShader from "./vertexShader";
 import fragmentShader from "./fragmentShader";
+import { useState } from "react";
 
 const CustomGeometryParticles = (props) => {
+  /**
+   * paint it black
+   */
   const mainState = useThree();
 
   useEffect(() => {
@@ -51,7 +55,7 @@ const CustomGeometryParticles = (props) => {
       uRadius: {
         value: 1,
       },
-      mousePos: { value: new Vector2() },
+      mousePos: { value: new Vector2(0, 0) },
     }),
     []
   );
@@ -61,9 +65,6 @@ const CustomGeometryParticles = (props) => {
   useEffect(() => {
     if (points.current.material.uniforms) {
       let temp = 35;
-      // if (temp > 100 || temp < -100) {
-      //   temp = 0;
-      // }
 
       points.current.material.uniforms.mousePos.value.x =
         normalizedMousePos.x * temp * -1;
@@ -74,7 +75,6 @@ const CustomGeometryParticles = (props) => {
 
   useFrame((state) => {
     const { clock } = state;
-    // console.log(clock.elapsedTime);
 
     points.current.material.uniforms.uTime.value = clock.elapsedTime;
   });
@@ -111,7 +111,6 @@ const PixelDance = () => {
     <>
       <ambientLight intensity={0.5} />
       <CustomGeometryParticles count={120} />
-      {/* <OrbitControls /> */}
     </>
   );
 };

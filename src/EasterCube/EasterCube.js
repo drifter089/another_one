@@ -88,7 +88,7 @@ const EasterCube = () => {
         ScrollTrigger.create({
           animation: myTemp,
           trigger: mainContainer.current,
-          markers: true,
+          // markers: true,
           start: "300% 300%",
           end: "300% 0%",
           pin: mainContainer.current,
@@ -108,7 +108,7 @@ const EasterCube = () => {
           }}
           ref={textRef}
         >
-          I HAVE WORKED WITH
+          I have worked with...
         </div>
         <div
           className="canvasStreach "

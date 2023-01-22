@@ -3,6 +3,7 @@ uniform float uTime;
 uniform float uRadius;
 uniform vec2 mousePos; 
 
+
 varying float currSize;
 
 
@@ -24,9 +25,10 @@ void main() {
 
   gl_Position = projectedPosition;
 
-  gl_PointSize = 22.0-dist;
+  gl_PointSize = 16.0-dist;
+  // gl_PointSize = 1.0;
 
-  currSize = 38.0-dist;
+  currSize = 35.0-dist;
   
 }
 

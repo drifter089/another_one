@@ -48,8 +48,6 @@ const Hero = () => {
   //   }
   // }, []);
 
-  useLayoutEffect(() => {});
-
   return (
     <>
       <div className="pannelContainer" ref={mainContainer}>
