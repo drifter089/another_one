@@ -15,6 +15,7 @@ import AdventureMain from "./Adventures/AdventureMain";
 //
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import FreeTime from "./FreeTime/FreeTime";
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
@@ -44,12 +45,15 @@ function App() {
       <Hero />
       <div className="pannelContainer"></div>
       <PixelPerfectionist />
+      <div className="pannelContainer"></div>
       <EasterCube />
+      <div className="pannelContainer"></div>
       <InteractiveLove />
+      <div className="pannelContainer"></div>
+      <FreeTime />
+      {/* <div className="pannelContainer"></div> */}
       <AdventureMain />
-      {/* <Lobby /> */}
-      {/* <MainCanvas /> */}
-      {/* <BufferTrigs /> */}
+      <div className="pannelContainer"></div>
     </>
   );
 }

@@ -65,3 +65,13 @@ code {
 .textAlCenter {
   text-align: center;
 }
+
+.imageVertical {
+  width: 25%;
+  height: 40%;
+}
+
+.imageHorizontal {
+  width: 30%;
+  height: 30%;
+}

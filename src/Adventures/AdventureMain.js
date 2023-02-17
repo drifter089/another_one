@@ -43,10 +43,13 @@ const AdventureMain = () => {
       setTimeout(() => {
         const myTimeline = gsap.timeline();
 
-        myTimeline.to(AdvTextRef.current, {
-          x: -AdvTextRef.current.scrollWidth,
-          opacity: 1,
-        });
+        myTimeline
+          .to(AdvTextRef.current, {
+            opacity: 1,
+          })
+          .to(AdvTextRef.current, {
+            x: -AdvTextRef.current.scrollWidth - 100,
+          });
 
         for (let i = 0; i < spanRefsArr.current.length; i++) {
           const spanRef = spanRefsArr.current.at(i);
@@ -57,13 +60,13 @@ const AdventureMain = () => {
                 y: (i + 1) * i * 6 + "vh",
                 // opacity: 1,
               },
-              "<-35%"
+              "<-28%"
             );
           } else {
             myTimeline.from(
               spanRef.current,
               {
-                y: (i + 1) * i * 8 + "vh",
+                y: (i + 1) * i * 10 + "vh",
                 opacity: 1,
               },
               "<"
@@ -80,7 +83,7 @@ const AdventureMain = () => {
           start: "200% 200%",
           end: "200% 0%",
           pin: mainContainer.current,
-          scrub: 2,
+          scrub: 1,
         });
       }, 1000);
     }
@@ -101,8 +104,8 @@ const AdventureMain = () => {
           style={{
             position: "relative",
             top: "50%",
-            left: "50vw",
-            // opacity: 0.2,
+            left: "100vw",
+            opacity: 0,
             display: "flex",
           }}
           ref={AdvTextRef}
@@ -110,7 +113,6 @@ const AdventureMain = () => {
           {textBlocks}
         </div>
       </div>
-      <div className="pannelContainer">ieovjejn</div>
     </>
   );
 };
