@@ -40,7 +40,6 @@ const EasterCube = () => {
   }, []);
 
   useLayoutEffect(() => {
-    // useEffect(() => {
     if (!once.current) {
       once.current = true;
 
@@ -54,6 +53,7 @@ const EasterCube = () => {
           })
           .to(twoDRef.current, {
             y: "-125vh",
+            opacity: 0,
           })
           // 3d
           .to(threeDRef.current, {
@@ -62,7 +62,7 @@ const EasterCube = () => {
           .to(
             threeDCuberef.current.rotation,
             {
-              x: 1,
+              x: 2,
               z: -2,
               y: -1.5,
             },
@@ -126,7 +126,7 @@ const EasterCube = () => {
           >
             2D
           </div>
-          <div
+          {/* <div
             style={{
               position: "relative",
               top: -170,
@@ -135,7 +135,7 @@ const EasterCube = () => {
               backgroundColor: "pink",
               margin: "auto",
             }}
-          ></div>
+          ></div> */}
         </div>
         <div
           className="canvasStreach"

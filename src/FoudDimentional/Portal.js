@@ -45,7 +45,7 @@ const Portal = forwardRef(function Portal(props, ref) {
     portaPlaneMatRef.current.stencilFuncMask = stencilConfig.stencilFuncMask;
     portaPlaneMatRef.current.stencilWrite = stencilConfig.stencilWrite;
 
-    console.log(portaPlaneMatRef);
+    // console.log(portaPlaneMatRef);
   });
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const Portal = forwardRef(function Portal(props, ref) {
     childrenGroupRef.current.renderOrder = stensilId;
 
     // material of only child
-    console.log(props.children.props.children[1].ref.current);
+    // console.log(props.children.props.children[1].ref.current);
   });
 
   return (

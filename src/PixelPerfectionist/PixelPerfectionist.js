@@ -48,12 +48,8 @@ const PixelPerfectionist = () => {
         style={{ backgroundColor: "pink", opacity: 1, zIndex: 2 }}
         ref={coverScreenRef}
       /> */}
-      <div
-        className="center purpleText"
-        style={{ position: "absolute", opacity: 0 }}
-        ref={textRef}
-      >
-        I am a Pixel Perfectionist
+      <div className="center purpleText" style={{ opacity: 1 }} ref={textRef}>
+        I'm a Pixel Perfectionist
       </div>
 
       <div className="canvasStreach">

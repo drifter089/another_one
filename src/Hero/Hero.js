@@ -51,6 +51,10 @@ const Hero = () => {
   return (
     <>
       <div className="pannelContainer" ref={mainContainer}>
+        {/* <div
+          style={{ top: 0, left: 0, backgroundColor: "grey", opacity: 0.2 }}
+          className="pannelContainer"
+        ></div> */}
         <div className="center" style={{ top: "36%" }}>
           <div ref={toptext}>Meet your next creative developer.</div>
         </div>
