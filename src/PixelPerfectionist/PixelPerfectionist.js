@@ -48,7 +48,7 @@ const PixelPerfectionist = () => {
         style={{ backgroundColor: "pink", opacity: 1, zIndex: 2 }}
         ref={coverScreenRef}
       /> */}
-      <div className="center purpleText" style={{ opacity: 1 }} ref={textRef}>
+      <div className="center " style={{ opacity: 1 }} ref={textRef}>
         I'm a Pixel Perfectionist
       </div>
 

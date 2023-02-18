@@ -102,7 +102,7 @@ const EasterCube = () => {
     <>
       <div className="pannelContainer" ref={mainContainer}>
         <div
-          className="center purpleText "
+          className="center  "
           style={{
             top: "10%",
           }}
@@ -118,7 +118,7 @@ const EasterCube = () => {
           }}
         >
           <div
-            className="purpleText textAlCenter"
+            className=" textAlCenter"
             style={{
               position: "relative",
               zIndex: 2,
