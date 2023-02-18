@@ -4,11 +4,16 @@ import { Canvas } from "@react-three/fiber";
 
 const InteractiveLove = () => {
   return (
-    <div className="pannelContainer">
+    <div
+      className="pannelContainer"
+      style={{
+        height: "300vh",
+      }}
+    >
       <div
         className="center "
         style={{
-          top: "20%",
+          top: "30%",
         }}
       >
         WHO ENJOYS MAKING THINGS INTERACTIVE
@@ -17,11 +22,12 @@ const InteractiveLove = () => {
         className="canvasStreach"
         style={{
           zIndex: 1,
+          height: "250vh",
         }}
       >
         <Canvas
           shadows
-          camera={{ position: [0, -2, 16], fov: 35, near: 1, far: 50 }}
+          camera={{ position: [0, 0, 80], fov: 35, near: 1, far: 200 }}
           onCreated={(state) => {
             state.scene.backgroundBlurriness = 0.4;
           }}

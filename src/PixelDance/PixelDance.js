@@ -17,7 +17,7 @@ const CustomGeometryParticles = (props) => {
 
   useEffect(() => {
     mainState.gl.setClearColor(new Color(0x000000));
-    mainState.camera.position.z = 25;
+    mainState.camera.position.z = 75;
   }, []);
   const { count } = props;
 

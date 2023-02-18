@@ -45,13 +45,9 @@ function App() {
   return (
     <>
       <Hero />
-      <div className="pannelContainer"></div>
       <PixelPerfectionist />
-      <div className="pannelContainer"></div>
       <EasterCube />
-      <div className="pannelContainer"></div>
       <InteractiveLove />
-      <div className="pannelContainer"></div>
       <FreeTime />
       <div
         className="pannelContainer"
@@ -68,7 +64,6 @@ function App() {
         }}
       ></div>
       <Flaws />
-      {/* <div className="pannelContainer"></div> */}
     </>
   );
 }

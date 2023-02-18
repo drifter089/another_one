@@ -8,52 +8,29 @@ gsap.registerPlugin(ScrollTrigger);
 
 const PixelPerfectionist = () => {
   const mainContainer = useRef();
-  const coverScreenRef = useRef();
   const textRef = useRef();
 
-  const once = useRef(false);
-
-  // useEffect(() => {
-  //   if (!once.current) {
-  //     once.current = true;
-  //     setTimeout(() => {
-  //       const myTimeline = gsap.timeline();
-
-  //       myTimeline
-  //         // .to(coverScreenRef.current, {
-  //         //   opacity: 0,
-  //         // })
-  //         .to(textRef.current, {
-  //           opacity: 1,
-  //         });
-
-  //       ScrollTrigger.create({
-  //         animation: myTimeline,
-  //         trigger: mainContainer.current,
-  //         markers: true,
-  //         start: "100% 100%",
-  //         end: "100% 0%",
-  //         pin: mainContainer.current,
-  //         scrub: 2,
-  //         pinSpacing: true,
-  //       });
-  //     }, 1000);
-  //   }
-  // });
-
   return (
-    <div className="pannelContainer" ref={mainContainer}>
-      {/* <div
-        className="pannelContainer"
-        style={{ backgroundColor: "pink", opacity: 1, zIndex: 2 }}
-        ref={coverScreenRef}
-      /> */}
-      <div className="center " style={{ opacity: 1 }} ref={textRef}>
+    <div
+      className="pannelContainer"
+      ref={mainContainer}
+      style={{ height: "300vh" }}
+    >
+      <div
+        className="center "
+        style={{ opacity: 1, top: "130vh" }}
+        ref={textRef}
+      >
         I'm a Pixel Perfectionist
       </div>
 
-      <div className="canvasStreach">
-        <Canvas camera={{ position: [0, 0, 20] }}>
+      <div
+        className="canvasStreach"
+        style={{
+          height: "300vh",
+        }}
+      >
+        <Canvas camera={{ position: [0, 0, 100] }}>
           <PixelDance />
         </Canvas>
       </div>
