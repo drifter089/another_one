@@ -16,6 +16,8 @@ import AdventureMain from "./Adventures/AdventureMain";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import FreeTime from "./FreeTime/FreeTime";
+import ContactForm from "./ContactForm/ContactForm";
+import Flaws from "./Flaws/Flaws";
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
@@ -51,9 +53,22 @@ function App() {
       <InteractiveLove />
       <div className="pannelContainer"></div>
       <FreeTime />
-      {/* <div className="pannelContainer"></div> */}
+      <div
+        className="pannelContainer"
+        style={{
+          height: "50vh",
+        }}
+      ></div>
       <AdventureMain />
-      <div className="pannelContainer"></div>
+      <ContactForm />
+      <div
+        className="pannelContainer"
+        style={{
+          height: "50vh",
+        }}
+      ></div>
+      <Flaws />
+      {/* <div className="pannelContainer"></div> */}
     </>
   );
 }

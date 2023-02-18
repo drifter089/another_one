@@ -116,7 +116,7 @@ const FreeTime = () => {
         ref={mainContainer}
       >
         <div
-          className="center purpleText"
+          className="center "
           style={{
             top: "-30%",
             zIndex: 3,
