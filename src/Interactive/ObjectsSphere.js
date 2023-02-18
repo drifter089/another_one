@@ -12,7 +12,6 @@ function ObjectsSphere({
 
   useEffect(() => {
     mainState.gl.setClearColor(new THREE.Color(0x000000), 0);
-    mainState.camera.position.z = 40;
   }, []);
 
   const api = useRef();
