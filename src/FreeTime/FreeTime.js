@@ -95,7 +95,7 @@ const FreeTime = () => {
         ScrollTrigger.create({
           animation: myTimeline,
           trigger: mainContainer.current,
-          markers: true,
+          // markers: true,
           start: "0% 100%",
           end: "0% -10%",
           scrub: 1,

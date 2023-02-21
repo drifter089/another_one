@@ -18,6 +18,9 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import FreeTime from "./FreeTime/FreeTime";
 import ContactForm from "./ContactForm/ContactForm";
 import Flaws from "./Flaws/Flaws";
+import GradientScroll from "./GradientScroll/GradientScroll";
+import BlackTextSection from "./GradientScroll/BlackTextSection";
+import TransparentText from "./GradientScroll/TransparentText";
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
@@ -44,9 +47,39 @@ function App() {
 
   return (
     <>
-      <Hero />
-      <PixelPerfectionist />
-      <EasterCube />
+      {/* <Hero />
+      <PixelPerfectionist /> */}
+      <div
+        style={{
+          backgroundColor: "white",
+        }}
+        className="pannelContainer"
+      ></div>
+      <div className="pannelContainer"></div>
+      <BlackTextSection />
+      <div className="pannelContainer"></div>
+      <div
+        style={{
+          backgroundColor: "white",
+        }}
+        className="pannelContainer"
+      ></div>
+      <div
+        style={{
+          backgroundColor: "white",
+        }}
+        className="pannelContainer"
+      ></div>
+      <div className="pannelContainer"></div>
+      <TransparentText />
+      <div className="pannelContainer"></div>
+      <div
+        style={{
+          backgroundColor: "white",
+        }}
+        className="pannelContainer"
+      ></div>
+      {/* <EasterCube />
       <InteractiveLove />
       <FreeTime />
       <div
@@ -63,7 +96,7 @@ function App() {
           height: "50vh",
         }}
       ></div>
-      <Flaws />
+      <Flaws /> */}
     </>
   );
 }

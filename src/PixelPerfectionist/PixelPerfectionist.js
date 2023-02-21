@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useLayoutEffect } from "react";
 import PixelDance from "../PixelDance/PixelDance";
 import { Canvas } from "@react-three/fiber";
 
@@ -10,6 +10,35 @@ const PixelPerfectionist = () => {
   const mainContainer = useRef();
   const textRef = useRef();
 
+  const once = useRef(false);
+
+  useLayoutEffect(() => {
+    if (!once.current) {
+      once.current = true;
+
+      const myTemp = gsap.timeline();
+
+      setTimeout(() => {
+        myTemp
+          .to(textRef.current, {
+            opacity: 1,
+          })
+          .to(textRef.current, {
+            opacity: 0,
+          });
+
+        ScrollTrigger.create({
+          animation: myTemp,
+          trigger: mainContainer.current,
+          start: "50% 100%",
+          end: "50% 20%",
+          scrub: 2,
+          markers: true,
+        });
+      }, 1000);
+    }
+  }, []);
+
   return (
     <div
       className="pannelContainer"
@@ -18,7 +47,7 @@ const PixelPerfectionist = () => {
     >
       <div
         className="center "
-        style={{ opacity: 1, top: "130vh" }}
+        style={{ opacity: 0, top: "130vh" }}
         ref={textRef}
       >
         I'm a Pixel Perfectionist

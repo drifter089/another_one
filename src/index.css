@@ -145,3 +145,14 @@ code {
   left: 50px;
   top: 35px;
 }
+
+/* Gradient scroll */
+.rotate {
+  transform: rotate(180deg);
+}
+
+.transtext {
+  background-clip: padding-box;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
