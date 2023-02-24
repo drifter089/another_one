@@ -1,14 +1,24 @@
 import React from "react";
-import TwoVHGradient from "./TwoVHGradient";
 import BlackTextSection from "./BlackTextSection";
 import TransparentText from "./TransparentText";
 
 const GradientScroll = () => {
   return (
     <>
-      <BlackTextSection />
-      <div className="pannelContainer"></div>
       <TransparentText />
+      <div
+        style={{
+          height: "80vh",
+        }}
+        className="pannelContainer"
+      ></div>
+      <BlackTextSection />
+      <div
+        style={{
+          height: "80vh",
+        }}
+        className="pannelContainer"
+      ></div>
     </>
   );
 };

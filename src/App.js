@@ -11,16 +11,15 @@ import PixelPerfectionist from "./PixelPerfectionist/PixelPerfectionist";
 import InteractiveLove from "./InteractiveLove/InteractiveLove";
 import EasterCube from "./EasterCube/EasterCube";
 import AdventureMain from "./Adventures/AdventureMain";
-
-//
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import FreeTime from "./FreeTime/FreeTime";
 import ContactForm from "./ContactForm/ContactForm";
 import Flaws from "./Flaws/Flaws";
 import GradientScroll from "./GradientScroll/GradientScroll";
-import BlackTextSection from "./GradientScroll/BlackTextSection";
-import TransparentText from "./GradientScroll/TransparentText";
+
+//
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
@@ -47,39 +46,10 @@ function App() {
 
   return (
     <>
-      {/* <Hero />
-      <PixelPerfectionist /> */}
-      <div
-        style={{
-          backgroundColor: "white",
-        }}
-        className="pannelContainer"
-      ></div>
-      <div className="pannelContainer"></div>
-      <BlackTextSection />
-      <div className="pannelContainer"></div>
-      <div
-        style={{
-          backgroundColor: "white",
-        }}
-        className="pannelContainer"
-      ></div>
-      <div
-        style={{
-          backgroundColor: "white",
-        }}
-        className="pannelContainer"
-      ></div>
-      <div className="pannelContainer"></div>
-      <TransparentText />
-      <div className="pannelContainer"></div>
-      <div
-        style={{
-          backgroundColor: "white",
-        }}
-        className="pannelContainer"
-      ></div>
-      {/* <EasterCube />
+      <Hero />
+      <PixelPerfectionist />
+      <GradientScroll />
+      <EasterCube />
       <InteractiveLove />
       <FreeTime />
       <div
@@ -96,7 +66,7 @@ function App() {
           height: "50vh",
         }}
       ></div>
-      <Flaws /> */}
+      <Flaws />
     </>
   );
 }

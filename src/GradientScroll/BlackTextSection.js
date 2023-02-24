@@ -5,6 +5,33 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
+const VisibleSection = () => {
+  return (
+    <div
+      style={{
+        position: "fixed",
+        top: "0",
+        left: "0",
+        zIndex: 3,
+        height: "100vh",
+        width: "100vw",
+        textAlign: "center",
+      }}
+    >
+      <span
+        style={{
+          color: "black",
+          position: "relative",
+          display: "block",
+          top: "40%",
+        }}
+      >
+        sfasffv
+      </span>
+    </div>
+  );
+};
+
 const BlackTextSection = () => {
   const once = useRef(false);
 
@@ -30,10 +57,10 @@ const BlackTextSection = () => {
         ScrollTrigger.create({
           animation: myTemp,
           trigger: lastImgRef.current,
-          start: "100% 300%",
-          end: "100% 0%",
+          start: "-100% 50%",
+          end: "100% 50%",
           scrub: 2,
-          markers: true,
+          // markers: true,
           onEnter: () => {
             setHideText(true);
             console.log("enter");
@@ -57,25 +84,7 @@ const BlackTextSection = () => {
 
   return (
     <div style={{ position: "relative" }}>
-      {hideText ? (
-        <div
-          style={{
-            position: "fixed",
-            top: "0",
-            left: "0",
-            zIndex: 3,
-            color: "black",
-            backgroundColor: "pink",
-            opacity: 0.2,
-            height: "100vh",
-            width: "100vw",
-          }}
-        >
-          sfasffv
-        </div>
-      ) : (
-        <></>
-      )}
+      {hideText ? <VisibleSection /> : <></>}
       <div className="pannelContainer">
         <img src={sexy_gradient} className="pannelContainer" />
       </div>

@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import sexy_gradient from "../assets/images/sexy_gradient.png";
 
 import gsap from "gsap";
@@ -10,83 +10,66 @@ const TransparentText = () => {
 
   const lastImgRef = useRef();
 
+  const textBackgroundRef = useRef();
+
   const [hideText, setHideText] = useState(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
+    if (hideText) {
+      textBackgroundRef.current.classList.remove("unmount");
+    } else {
+      textBackgroundRef.current.classList.add("unmount");
+    }
+  }, [hideText]);
+
+  useEffect(() => {
     if (!once.current) {
       once.current = true;
 
       const myTemp = gsap.timeline();
 
       setTimeout(() => {
-        myTemp
-          .to(lastImgRef.current, {
-            opacity: 1,
-          })
-          .to(lastImgRef.current, {
-            opacity: 1,
-          });
+        myTemp.to(textBackgroundRef.current, {
+          backgroundPosition: "0 -160vh",
+        });
 
         ScrollTrigger.create({
           animation: myTemp,
           trigger: lastImgRef.current,
-          start: "100% 300%",
-          end: "100% 0%",
+          start: "0% 80%",
+          end: "100% 50%",
           scrub: 2,
-          markers: true,
+          // markers: true,
           onEnter: () => {
             setHideText(true);
-            console.log("enter");
           },
           onLeave: () => {
             setHideText(false);
-            console.log("left");
           },
           onEnterBack: () => {
             setHideText(true);
-            console.log("enterback");
           },
           onLeaveBack: () => {
             setHideText(false);
-            console.log("leaveback");
           },
         });
-      }, 1000);
+      }, 500);
     }
-  }, []);
+  }, [hideText]);
 
   return (
-    <div style={{ position: "relative" }}>
-      {hideText ? (
-        <div
-          style={{
-            position: "fixed",
-            top: "0",
-            left: "0",
-            zIndex: 3,
-            color: "black",
-            backgroundColor: "pink",
-            opacity: 0.2,
-            height: "100vh",
-            width: "100vw",
-          }}
-        >
-          sfasffv
-        </div>
-      ) : (
-        <></>
-      )}
-      <div className="pannelContainer">
-        <img src={sexy_gradient} className="pannelContainer" />
+    <>
+      <div
+        className="transtext"
+        ref={lastImgRef}
+        style={{
+          opacity: 0,
+        }}
+      ></div>
+      <div className="grandchild unmount" ref={textBackgroundRef}>
+        asjjiopasjvcvc
       </div>
-      <div className="pannelContainer">
-        <img
-          src={sexy_gradient}
-          className="pannelContainer rotate"
-          ref={lastImgRef}
-        />
-      </div>
-    </div>
+    </>
   );
 };
 

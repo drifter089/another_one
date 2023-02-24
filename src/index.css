@@ -152,7 +152,36 @@ code {
 }
 
 .transtext {
-  background-clip: padding-box;
-  -webkit-text-fill-color: transparent;
+  height: 200vh;
+  width: 100vw;
+  background-color: #c060ff;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.grandchild {
+  background: url("./assets/images/combined_gradient.png") no-repeat center
+    center;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100vw;
+  height: 200vh;
+  min-height: 192px;
+  border: 0 none transparent;
+  outline: 0 none transparent;
+  background-size: 100% 100%;
+  background-position: 0 80vh;
+  background-clip: text;
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-top: 21%;
+}
+
+.unmount {
+  z-index: -10 !important;
+  opacity: 0;
 }
