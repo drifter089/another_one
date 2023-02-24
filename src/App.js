@@ -11,13 +11,15 @@ import PixelPerfectionist from "./PixelPerfectionist/PixelPerfectionist";
 import InteractiveLove from "./InteractiveLove/InteractiveLove";
 import EasterCube from "./EasterCube/EasterCube";
 import AdventureMain from "./Adventures/AdventureMain";
+import FreeTime from "./FreeTime/FreeTime";
+import ContactForm from "./ContactForm/ContactForm";
+import Flaws from "./Flaws/Flaws";
+import GradientScroll from "./GradientScroll/GradientScroll";
 
 //
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import FreeTime from "./FreeTime/FreeTime";
-import ContactForm from "./ContactForm/ContactForm";
-import Flaws from "./Flaws/Flaws";
+
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
@@ -46,6 +48,7 @@ function App() {
     <>
       <Hero />
       <PixelPerfectionist />
+      <GradientScroll />
       <EasterCube />
       <InteractiveLove />
       <FreeTime />
