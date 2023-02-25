@@ -1,5 +1,5 @@
 import React from "react";
-import SecondCanvas from "../Interactive/SecondCanvas";
+import SecondCanvas from "./Interactive/SecondCanvas";
 import { Canvas } from "@react-three/fiber";
 
 const InteractiveLove = () => {

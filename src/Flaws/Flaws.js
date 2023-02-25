@@ -12,8 +12,7 @@ const Flaws = () => {
       >
         reasons not to hire me...
       </div>
-      <div className="centerButton"></div>
-      <FollowingEyes />
+      {/* <FollowingEyes /> */}
     </div>
   );
 };

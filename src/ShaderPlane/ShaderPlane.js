@@ -56,7 +56,12 @@ const ShaderPlane = () => {
     <mesh ref={planeRef}>
       <planeGeometry args={[85, 85]} />
       {/* <meshNormalMaterial /> */}
-      <shaderMaterial attach="material" args={[SphereShaderMaterial]} />
+      <shaderMaterial
+        attach="material"
+        args={[SphereShaderMaterial]}
+        transparent={true}
+        opacity={0.2}
+      />
     </mesh>
   );
 };

@@ -8,7 +8,7 @@ const GradientScroll = () => {
       <TransparentText />
       <div
         style={{
-          height: "80vh",
+          height: "20vh",
         }}
         className="pannelContainer"
       ></div>

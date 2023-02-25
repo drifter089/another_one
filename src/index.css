@@ -181,6 +181,19 @@ code {
   margin-top: 21%;
 }
 
+
+/* general abstractions */
+
+.mount {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  height: 100vh;
+  width: 100vw;
+}
+
+
 .unmount {
   z-index: -10 !important;
   opacity: 0;

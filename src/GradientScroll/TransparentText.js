@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import sexy_gradient from "../assets/images/sexy_gradient.png";
-
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
