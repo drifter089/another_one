@@ -1,5 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
+
 import sexy_gradient from "../assets/images/combined_gradient.png";
+
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -9,6 +11,7 @@ const VisibleSection = () => {
   return (
     <div
       style={{
+
         textAlign: "center",
       }}
       className="mount"
@@ -52,10 +55,12 @@ const BlackTextSection = () => {
         ScrollTrigger.create({
           animation: myTemp,
           trigger: lastImgRef.current,
+
           start: "0% 50%",
           end: "100% 50%",
           scrub: 2,
           markers: true,
+
           onEnter: () => {
             setHideText(true);
             console.log("enter");
@@ -78,6 +83,7 @@ const BlackTextSection = () => {
   }, []);
 
   return (
+
     <>
       <div className="pannelContainer"></div>
       <div style={{ position: "relative" }}>
@@ -100,6 +106,7 @@ const BlackTextSection = () => {
         </div>
       </div>
     </>
+
   );
 };
 
