@@ -19,6 +19,7 @@ import GradientScroll from "./GradientScroll/GradientScroll";
 //
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import ImageHelixScroller from "./ImageHelixScroller/ImageHelixScroller";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,6 +68,7 @@ function App() {
         }}
       ></div>
       <Flaws />
+      {/* <ImageHelixScroller /> */}
     </>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useLayoutEffect } from "react";
-import PixelDance from "../PixelDance/PixelDance";
+import PixelDance from "./PixelDance/PixelDance";
 import { Canvas } from "@react-three/fiber";
 
 import gsap from "gsap";

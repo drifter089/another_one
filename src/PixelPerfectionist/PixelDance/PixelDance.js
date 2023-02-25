@@ -3,7 +3,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useMemo, useRef, useEffect } from "react";
 import * as THREE from "three";
 import { Vector2, Color } from "three";
-import { useNormalizedMousePosition } from "../components/normalizedMousePosHook";
+import { useNormalizedMousePosition } from "../../components/normalizedMousePosHook";
 
 import vertexShader from "./vertexShader";
 import fragmentShader from "./fragmentShader";

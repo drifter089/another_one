@@ -4,7 +4,7 @@ import React, { useRef, useMemo, useEffect } from "react";
 import { degToRad } from "three/src/math/MathUtils";
 import Portal from "./Portal";
 import { Text3D } from "@react-three/drei";
-import fontFile from "../assets/fonts/Secular.json";
+import fontFile from "../../assets/fonts/Secular.json";
 import { Model } from "./Model";
 import { Color } from "three";
 

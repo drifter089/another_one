@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
-import sexy_gradient from "../assets/images/sexy_gradient.png";
+import sexy_gradient from "../assets/images/combined_gradient.png";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -9,14 +9,9 @@ const VisibleSection = () => {
   return (
     <div
       style={{
-        position: "fixed",
-        top: "0",
-        left: "0",
-        zIndex: 3,
-        height: "100vh",
-        width: "100vw",
         textAlign: "center",
       }}
+      className="mount"
     >
       <span
         style={{
@@ -57,10 +52,10 @@ const BlackTextSection = () => {
         ScrollTrigger.create({
           animation: myTemp,
           trigger: lastImgRef.current,
-          start: "-100% 50%",
+          start: "0% 50%",
           end: "100% 50%",
           scrub: 2,
-          // markers: true,
+          markers: true,
           onEnter: () => {
             setHideText(true);
             console.log("enter");
@@ -83,19 +78,28 @@ const BlackTextSection = () => {
   }, []);
 
   return (
-    <div style={{ position: "relative" }}>
-      {hideText ? <VisibleSection /> : <></>}
-      <div className="pannelContainer">
-        <img src={sexy_gradient} className="pannelContainer" />
-      </div>
-      <div className="pannelContainer">
-        <img
-          src={sexy_gradient}
-          className="pannelContainer rotate"
+    <>
+      <div className="pannelContainer"></div>
+      <div style={{ position: "relative" }}>
+        {hideText ? <VisibleSection /> : <></>}
+        <div
+          className="pannelContainer"
+          style={{
+            height: "200vh",
+          }}
           ref={lastImgRef}
-        />
+        >
+          <img
+            src={sexy_gradient}
+            style={{
+              display: "inline-block",
+              height: "200vh",
+              width: "100vw",
+            }}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

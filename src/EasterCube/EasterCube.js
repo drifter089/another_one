@@ -7,7 +7,7 @@ import React, {
   useState,
 } from "react";
 import { Canvas } from "@react-three/fiber";
-import ImpossibleCube from "../FoudDimentional/ImpossibleCube";
+import ImpossibleCube from "./FoudDimentional/ImpossibleCube";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { Timeline } from "gsap/gsap-core";
