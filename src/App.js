@@ -55,7 +55,7 @@ function App() {
       <div
         className="pannelContainer"
         style={{
-          height: "50vh",
+          height: "100vh",
         }}
       ></div>
       <ImageHelixScroller />
