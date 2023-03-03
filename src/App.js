@@ -15,11 +15,10 @@ import FreeTime from "./FreeTime/FreeTime";
 import ContactForm from "./ContactForm/ContactForm";
 import Flaws from "./Flaws/Flaws";
 import GradientScroll from "./GradientScroll/GradientScroll";
-import ImageHelixScroller from "./ImageHelixScroller/ImageHelixScroller";
-
-//
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import ImageHelixScroller from "./ImageHelixScroller/ImageHelixScroller";
+import ZeroGBox from "./ZeroGravityPhysics/ZeroGBox";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,28 +46,30 @@ function App() {
 
   return (
     <>
-      <Hero />
+      {/* <Hero /> */}
+      <ZeroGBox />
       <PixelPerfectionist />
       <GradientScroll />
       <EasterCube />
       <InteractiveLove />
-      <FreeTime />
       <div
         className="pannelContainer"
         style={{
           height: "50vh",
         }}
       ></div>
+      <ImageHelixScroller />
       <AdventureMain />
-      <ContactForm />
-      <div
-        className="pannelContainer"
-        style={{
-          height: "50vh",
-        }}
+      {/* <MainStage /> */}
+      {/* {/* <ContactForm /> */}
+      {/* <div
+      className="pannelContainer"
+      style={{
+        height: "50vh",
+      }}
       ></div>
       <Flaws />
-      {/* <ImageHelixScroller /> */}
+      <FreeTime />  */}
     </>
   );
 }

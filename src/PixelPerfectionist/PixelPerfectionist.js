@@ -33,7 +33,7 @@ const PixelPerfectionist = () => {
           start: "50% 100%",
           end: "50% 20%",
           scrub: 2,
-          markers: true,
+          // markers: true,
         });
       }, 1000);
     }

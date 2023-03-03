@@ -53,7 +53,7 @@ const TransparentText = () => {
         });
       }, 500);
     }
-  }, [hideText]);
+  }, []);
 
   return (
     <>
@@ -65,7 +65,7 @@ const TransparentText = () => {
         }}
       ></div>
       <div className="grandchild unmount" ref={textBackgroundRef}>
-        asjjiopasjvcvc
+        with animation skills to boot and attention to detail.
       </div>
     </>
   );
