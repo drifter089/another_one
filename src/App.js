@@ -15,11 +15,10 @@ import FreeTime from "./FreeTime/FreeTime";
 import ContactForm from "./ContactForm/ContactForm";
 import Flaws from "./Flaws/Flaws";
 import GradientScroll from "./GradientScroll/GradientScroll";
-
-//
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ImageHelixScroller from "./ImageHelixScroller/ImageHelixScroller";
+import ZeroGBox from "./ZeroGravityPhysics/ZeroGBox";
 
 gsap.registerPlugin(ScrollTrigger);
 
