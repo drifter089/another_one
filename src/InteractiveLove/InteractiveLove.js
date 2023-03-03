@@ -16,7 +16,7 @@ const InteractiveLove = () => {
           top: "30%",
         }}
       >
-        WHO ENJOYS MAKING THINGS INTERACTIVE
+        who enjoys making things interactive
       </div>
       <div
         className="canvasStreach"

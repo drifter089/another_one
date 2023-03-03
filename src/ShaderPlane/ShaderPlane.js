@@ -26,19 +26,6 @@ const ShaderPlane = () => {
 
       const x = (clientX / innerWidth) * 2 - 1;
       const y = -(clientY / innerHeight) * 2 + 1;
-      // if (planeRef.current.material.uniforms) {
-      //   if (x >= 0.6 || x < -0.6) {
-      //     planeRef.current.material.uniforms.mousePos.value.x = 0.6;
-
-      //   } else {
-      //     planeRef.current.material.uniforms.mousePos.value.x = x;
-      //   }
-      //   if (y >= 0.6 || y < -0.6) {
-      //     planeRef.current.material.uniforms.mousePos.value.y = 0.6;
-      //   } else {
-      //     planeRef.current.material.uniforms.mousePos.value.y = y;
-      //   }
-      // }
       planeRef.current.material.uniforms.mousePos.value.y = y / 2.3;
       planeRef.current.material.uniforms.mousePos.value.x = x / 2.3;
     }
@@ -55,7 +42,6 @@ const ShaderPlane = () => {
   return (
     <mesh ref={planeRef}>
       <planeGeometry args={[85, 85]} />
-      {/* <meshNormalMaterial /> */}
       <shaderMaterial
         attach="material"
         args={[SphereShaderMaterial]}

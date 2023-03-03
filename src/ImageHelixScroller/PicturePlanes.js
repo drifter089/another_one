@@ -8,14 +8,20 @@ import React, {
 import { useThree } from "@react-three/fiber";
 import { AxesHelper, Vector3, DoubleSide } from "three";
 import { degToRad } from "three/src/math/MathUtils";
+import { useTexture } from "@react-three/drei";
+
+function ImageMaterial({ imagee }) {
+  const texture = useTexture(imagee);
+  return <meshBasicMaterial map={texture} side={DoubleSide} />;
+}
 
 const PicturePlanes = (props) => {
   const planeRef = useRef();
 
   const { scene, camera } = useThree();
-  const axesHelper = new AxesHelper(10);
-  axesHelper.setColors("red", "green", "blue");
-  scene.add(axesHelper);
+  // const axesHelper = new AxesHelper(10);
+  // axesHelper.setColors("red", "green", "blue");
+  // scene.add(axesHelper);
 
   const finalObjects = useMemo(() => {
     const cubes = [];
@@ -45,19 +51,36 @@ const PicturePlanes = (props) => {
       theta = theta + 45;
       yCurrent = yCurrent - yOffSet;
 
-      cubes.push(
-        <mesh
-          position={pos}
-          ref={planeRef}
-          onUpdate={(self) => {
-            self.lookAt(lookingAt);
-          }}
-          key={tempKey}
-        >
-          <planeGeometry args={[3, 2, 12, 12]} />
-          <meshNormalMaterial side={DoubleSide} />
-        </mesh>
-      );
+      if (i === 7) {
+        cubes.push(
+          <mesh
+            position={pos}
+            ref={planeRef}
+            onUpdate={(self) => {
+              self.lookAt(lookingAt);
+            }}
+            key={tempKey}
+          >
+            <planeGeometry args={[3, 2, 12, 12]} />
+            <meshNormalMaterial transparent={true} opacity={0} />
+          </mesh>
+        );
+      } else {
+        cubes.push(
+          <mesh
+            position={pos}
+            ref={planeRef}
+            onUpdate={(self) => {
+              self.lookAt(lookingAt);
+            }}
+            key={tempKey}
+          >
+            <planeGeometry args={[3, 2, 12, 12]} />
+            <ImageMaterial imagee={props.imagee[i]} />
+            {/* <meshNormalMaterial  /> */}
+          </mesh>
+        );
+      }
     }
 
     return cubes;

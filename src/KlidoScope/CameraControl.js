@@ -19,7 +19,7 @@ const CameraControl = () => {
    */
   const normalizedMousePos = useNormalizedMousePosition();
 
-  useEffect(() => {
+  function cameraTl() {
     const mouseX = normalizedMousePos.x;
     const mouseY = normalizedMousePos.y;
 
@@ -32,6 +32,10 @@ const CameraControl = () => {
       x: dist * mouseX,
       y: dist * mouseY,
     });
+  }
+
+  useEffect(() => {
+    cameraTl();
   }, [normalizedMousePos]);
 
   useFrame(() => {

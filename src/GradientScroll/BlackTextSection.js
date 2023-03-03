@@ -21,7 +21,7 @@ const VisibleSection = () => {
           top: "40%",
         }}
       >
-        sfasffv
+        I can bring your ideas to life.
       </span>
     </div>
   );
@@ -55,7 +55,7 @@ const BlackTextSection = () => {
           start: "0% 50%",
           end: "100% 50%",
           scrub: 2,
-          markers: true,
+          // markers: true,
           onEnter: () => {
             setHideText(true);
             console.log("enter");
