@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
+
 import sexy_gradient from "../assets/images/combined_gradient.png";
 
 import gsap from "gsap";
@@ -52,6 +53,7 @@ const BlackTextSection = () => {
         ScrollTrigger.create({
           animation: myTemp,
           trigger: lastImgRef.current,
+
           start: "0% 50%",
           end: "100% 50%",
           scrub: 2,
