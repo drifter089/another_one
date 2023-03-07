@@ -6,22 +6,26 @@ import React, {
   useMemo,
 } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { AxesHelper, Vector3, DoubleSide } from "three";
+import { AxesHelper, Vector3, DoubleSide, Color } from "three";
 import { degToRad } from "three/src/math/MathUtils";
 import { OrbitControls } from "@react-three/drei";
 
 import OuterCube from "./OuterCubes/OuterCube";
 import InnerCube from "./InnerCube";
 
+import ved1 from "../../assets/vedios/watchingCat.mp4";
+import ved2 from "../../assets/vedios/sleepCode.mp4";
+import ved3 from "../../assets/vedios/office.mp4";
+import ved4 from "../../assets/vedios/lastminute.mp4";
+import ved5 from "../../assets/vedios/competitive.mp4";
+import ved6 from "../../assets/vedios/afternoon.mp4";
+
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { Timeline } from "gsap/gsap-core";
 gsap.registerPlugin(ScrollTrigger);
 
-const ClickyCubes = (props) => {
-  const [selected, setSelected] = useState(-1);
-  // const [inTransition, setInTransition] = useState(false);
-
+const ClickyCubes = ({ selected, setSelected }) => {
   /**
    * creting refs
    */
@@ -69,8 +73,10 @@ const ClickyCubes = (props) => {
    * Generating Cubes
    */
 
-  const radius = 10;
+  const radius = 13;
   const theta = 60;
+
+  const vedioArr = useMemo(() => [ved1, ved2, ved3, ved4, ved5, ved6], []);
 
   const groupedCubes = useMemo(() => {
     const result = groupRefArr.map((ref, index) => {
@@ -81,6 +87,7 @@ const ClickyCubes = (props) => {
           index={index}
           key={index}
           ref={ref}
+          data={vedioArr[index]}
         />
       );
     });
@@ -92,7 +99,7 @@ const ClickyCubes = (props) => {
    * cubes initial mount
    */
 
-  const state = useThree();
+  const mainState = useThree();
 
   const once = useRef(false);
 
@@ -117,7 +124,7 @@ const ClickyCubes = (props) => {
     timeline
       .to(ref.current.position, {
         x: 0,
-        y: 0,
+        y: -0.5,
         z: 14,
         duration: 1.5,
       })
@@ -133,6 +140,7 @@ const ClickyCubes = (props) => {
 
   useLayoutEffect(() => {
     if (!once.current) {
+      once.current = true;
       setTimeout(() => {
         groupRefArr.map((ref, i) => {
           // calculate position
@@ -152,39 +160,28 @@ const ClickyCubes = (props) => {
         });
       }, 100);
     }
+    mainState.gl.setClearColor(new Color(0x000000), 0);
   }, []);
 
   /**
    state based animations
   */
 
-  function setHtml(x) {
-    props.setSelectedHTML(x);
-  }
-
   useEffect(() => {
     if (selected != -1) {
       // come up
       mountTimelineArr[selected].play();
-      // console.log("played");
-      console.log(groupRefArr[selected]);
     }
-    // setHtml(selected);
 
     return () => {
       if (selected != -1) {
         // go back
         mountTimelineArr[selected].reverse();
-        // setSelectedHTML(() => {
-        //   return selected;
-        // });
       }
-      // setHtml(selected);
-      // props.setSelectedHTML(selected);
     };
   }, [selected]);
 
   return <>{groupedCubes}</>;
 };
 
-export default React.memo(ClickyCubes);
+export default ClickyCubes;

@@ -26,8 +26,8 @@ code {
   font-family: "product_sans";
   font-style: normal;
   font-weight: 700;
-  font-size: 130px;
-  line-height: 100px;
+  font-size: 6vw;
+  line-height: 5vw;
   color: azure;
 }
 
@@ -181,7 +181,6 @@ code {
   margin-top: 21%;
 }
 
-
 /* general abstractions */
 
 .mount {
@@ -193,8 +192,50 @@ code {
   width: 100vw;
 }
 
-
 .unmount {
   z-index: -10 !important;
+  opacity: 0;
+}
+
+/* clicky cubes */
+
+#cross {
+  opacity: 0;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 1vh;
+  right: 4vw;
+  /* position: relative; */
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Safari and Chrome */
+}
+
+#cross:before,
+#cross:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: rgb(255, 255, 255);
+}
+
+#cross:before {
+  left: 50%;
+  width: 30%;
+  margin-left: -15%;
+  height: 100%;
+}
+
+#cross:after {
+  top: 50%;
+  height: 30%;
+  margin-top: -15%;
+  width: 100%;
+}
+
+.reasonText {
+  text-align: center;
+  top: 20%;
   opacity: 0;
 }

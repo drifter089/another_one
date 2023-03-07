@@ -4,6 +4,7 @@ import React, {
   useLayoutEffect,
   useMemo,
   useEffect,
+  Suspense,
 } from "react";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
@@ -98,7 +99,7 @@ const ImageHelixScroller = () => {
           // },
           // });
         });
-      }, 2000);
+      }, 3000);
     }
   }, []);
 
@@ -130,16 +131,18 @@ const ImageHelixScroller = () => {
               zIndex: 10,
             }}
           >
-            <group ref={blobGroupRef}>
-              <Blob />
-            </group>
-            <group position={[0, -yOffset * 4, 0]} ref={groupRef}>
-              <PicturePlanes
-                radius={radius}
-                yOffset={yOffset}
-                imagee={[pic1, pic1, pic1, pic1, pic1, pic1, pic1, pic1]}
-              />
-            </group>
+            <Suspense fallback={null}>
+              <group ref={blobGroupRef}>
+                <Blob />
+              </group>
+              <group position={[0, -yOffset * 4, 0]} ref={groupRef}>
+                <PicturePlanes
+                  radius={radius}
+                  yOffset={yOffset}
+                  imagee={[pic1, pic1, pic1, pic1, pic1, pic1, pic1, pic1]}
+                />
+              </group>
+            </Suspense>
             {/* <OrbitControls enableZoom={false} /> */}
           </Canvas>
         </div>

@@ -61,13 +61,13 @@ function CenterObjects({ count = 6, vec = new THREE.Vector3() }) {
     return cubes;
   }, []);
 
-  useEffect(() => {
-    setTimeout(() => {
-      console.log("dasvjhgidv");
-      clickHandler();
-      clickHandler();
-    }, 100);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     console.log("dasvjhgidv");
+  //     clickHandler();
+  //     clickHandler();
+  //   }, 200);
+  // }, []);
 
   return (
     <>
@@ -76,7 +76,7 @@ function CenterObjects({ count = 6, vec = new THREE.Vector3() }) {
         colliders="ball"
         linearDamping={0}
         angularDamping={0}
-        restitution={1.4}
+        restitution={1.23}
         positions={Array.from({ length: count }, () => [0, 0, 0])}
       >
         {finalObjects}
