@@ -80,7 +80,7 @@ const ImageHelixScroller = () => {
           end: "800% 100%",
           scrub: 1,
           pin: canvasDivRef.current,
-          markers: true,
+          // markers: true,
           // onEnter: () => {
           //   setHideText(true);
           //   console.log("enter");

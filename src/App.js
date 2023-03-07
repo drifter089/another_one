@@ -50,17 +50,17 @@ function App() {
   return (
     <>
       {/* <Hero /> */}
-      <Suspense fallback={<Loading />}>
-        <ZeroGBox />
-        <PixelPerfectionist />
-        <GradientScroll />
-        <EasterCube />
-        <InteractiveLove />
-        <div className="pannelContainer textAlCenter">still make free time</div>
-        <ImageHelixScroller />
-        <AdventureMain />
-        <MainStage />
-      </Suspense>
+      {/* <Suspense fallback={<Loading />}> */}
+      <ZeroGBox />
+      <PixelPerfectionist />
+      <GradientScroll />
+      <EasterCube />
+      <InteractiveLove />
+      <div className="pannelContainer textAlCenter">still make free time</div>
+      <ImageHelixScroller />
+      <AdventureMain />
+      <MainStage />
+      {/* </Suspense> */}
       {/* {/* <ContactForm /> */}
       {/* <div
       className="pannelContainer"
