@@ -19,6 +19,9 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ImageHelixScroller from "./ImageHelixScroller/ImageHelixScroller";
 import ZeroGBox from "./ZeroGravityPhysics/ZeroGBox";
+import MainStage from "./HoverCubesSection/MainStage";
+import { Suspense } from "react";
+import Loading from "./Loading/Loading";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,20 +50,17 @@ function App() {
   return (
     <>
       {/* <Hero /> */}
-      <ZeroGBox />
-      <PixelPerfectionist />
-      <GradientScroll />
-      <EasterCube />
-      <InteractiveLove />
-      <div
-        className="pannelContainer"
-        style={{
-          height: "100vh",
-        }}
-      ></div>
-      <ImageHelixScroller />
-      <AdventureMain />
-      {/* <MainStage /> */}
+      <Suspense fallback={<Loading />}>
+        <ZeroGBox />
+        <PixelPerfectionist />
+        <GradientScroll />
+        <EasterCube />
+        <InteractiveLove />
+        <div className="pannelContainer textAlCenter">still make free time</div>
+        <ImageHelixScroller />
+        <AdventureMain />
+        <MainStage />
+      </Suspense>
       {/* {/* <ContactForm /> */}
       {/* <div
       className="pannelContainer"

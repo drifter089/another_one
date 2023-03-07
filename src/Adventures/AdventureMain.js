@@ -22,9 +22,7 @@ const AdventureMain = () => {
             display: "inline-block",
             position: "relative",
             fontWeight: 700,
-            fontSize: 700,
-            // top: "60vh",
-            // opacity: 0,
+            fontSize: "14vw",
           }}
           ref={tempRef}
           key={i}
