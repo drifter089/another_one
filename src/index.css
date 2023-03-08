@@ -239,3 +239,49 @@ code {
   top: 20%;
   opacity: 0;
 }
+
+/* contact me */
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: 100vh;
+}
+.mainText {
+  flex-grow: 3;
+}
+
+.bottomText {
+  border-top: 2px solid white;
+  font-size: 3vw;
+}
+
+.btnContainer {
+  flex-grow: 2.8;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.downloadBtn {
+  z-index: 12;
+  background: none;
+  border: 2px solid;
+  border-radius: 10%;
+  line-height: 1;
+  color: #a972cb;
+  text-align: center;
+  text-justify: auto;
+  font-size: 2.8vw;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-bottom: 0.3%;
+}
+.downloadBtn:hover,
+.downloadBtn:focus {
+  box-shadow: 12px 12px 2px 1px #a972cb;
+  -webkit-transform: translateY(-0.5vh);
+  transform: translateY(-0.5vh);
+}

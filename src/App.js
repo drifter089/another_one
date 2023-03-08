@@ -60,8 +60,8 @@ function App() {
       <ImageHelixScroller />
       <AdventureMain />
       <MainStage />
+      <ContactForm />
       {/* </Suspense> */}
-      {/* {/* <ContactForm /> */}
       {/* <div
       className="pannelContainer"
       style={{
