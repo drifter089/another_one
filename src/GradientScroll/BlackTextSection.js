@@ -76,6 +76,9 @@ const BlackTextSection = () => {
           },
         });
       }, 1000);
+      setHideText(() => {
+        return false;
+      });
     }
   }, []);
 
