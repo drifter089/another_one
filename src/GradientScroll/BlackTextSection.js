@@ -80,7 +80,7 @@ const BlackTextSection = () => {
         setHideText(() => {
           return false;
         });
-      }, 1100);
+      }, 1200);
     }
   }, []);
 
