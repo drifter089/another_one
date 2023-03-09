@@ -56,10 +56,23 @@ function App() {
       <GradientScroll />
       <EasterCube />
       <InteractiveLove />
-      <div className="pannelContainer textAlCenter">still make free time</div>
+      <div
+        className="pannelContainer textAlCenter"
+        style={{
+          height: "10vh",
+        }}
+      >
+        still make free time
+      </div>
       <ImageHelixScroller />
       <AdventureMain />
       <MainStage />
+      <div
+        className="pannelContainer"
+        style={{
+          height: "40vh",
+        }}
+      ></div>
       <ContactForm />
       {/* </Suspense> */}
       {/* <div

@@ -7,7 +7,7 @@ const InteractiveLove = () => {
     <div
       className="pannelContainer"
       style={{
-        height: "300vh",
+        height: "250vh",
       }}
     >
       <div

@@ -58,7 +58,7 @@ const MainStage = () => {
         textRefArr.map((ref, i) => {
           makeOpacityTimeLine(ref, opacityTimeLineArr[i]);
         });
-      }, 100);
+      }, 1000);
     }
   }, []);
 
@@ -70,8 +70,8 @@ const MainStage = () => {
     }
     return () => {
       if (selectedHTML != -1) {
-        gsap.to(btnRef.current, { opacity: 0, duration: 0.5 });
         opacityTimeLineArr[selectedHTML].reverse();
+        gsap.to(btnRef.current, { opacity: 0, duration: 0.5 });
       }
       console.log("chsnged to html", selectedHTML);
     };
@@ -79,7 +79,12 @@ const MainStage = () => {
 
   return (
     <>
-      <div className="pannelContainer textAlCenter">
+      <div
+        className="pannelContainer textAlCenter"
+        // style={{
+        //   height: "80vh",
+        // }}
+      >
         <div
           style={{
             position: "relative",
@@ -88,6 +93,15 @@ const MainStage = () => {
           }}
         >
           Still not convinced ..?
+        </div>
+        <div
+          style={{
+            position: "relative",
+            top: "75vh",
+            textAlign: "center",
+          }}
+        >
+          click me!
         </div>
       </div>
       <div
@@ -120,6 +134,7 @@ const MainStage = () => {
         <div className="canvasStreach reasonText" ref={textRef6}>
           I never feel sleepy during afternoon conference calls.
         </div>
+
         <div
           id="cross"
           // className="myBtn circle"
