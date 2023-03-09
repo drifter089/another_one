@@ -28,33 +28,33 @@ const BlackTextSection = () => {
   useLayoutEffect(() => {
     if (!once.current) {
       once.current = true;
-      setTimeout(() => {
-        ScrollTrigger.create({
-          // animation: myTemp,
-          trigger: lastImgRef.current,
+      // setTimeout(() => {
+      ScrollTrigger.create({
+        // animation: myTemp,
+        trigger: lastImgRef.current,
 
-          start: "0% 50%",
-          end: "100% 50%",
-          scrub: 2,
-          markers: true,
-          onEnter: () => {
-            setHideText(true);
-            // console.log("enter");
-          },
-          onLeave: () => {
-            setHideText(false);
-            // console.log("left");
-          },
-          onEnterBack: () => {
-            setHideText(true);
-            // console.log("enterback");
-          },
-          onLeaveBack: () => {
-            setHideText(false);
-            // console.log("leaveback");
-          },
-        });
-      }, 1000);
+        start: "0% 50%",
+        end: "100% 50%",
+        scrub: 2,
+        // markers: true,
+        onEnter: () => {
+          setHideText(true);
+          // console.log("enter");
+        },
+        onLeave: () => {
+          setHideText(false);
+          // console.log("left");
+        },
+        onEnterBack: () => {
+          setHideText(true);
+          // console.log("enterback");
+        },
+        onLeaveBack: () => {
+          setHideText(false);
+          // console.log("leaveback");
+        },
+      });
+      // }, 1000);
     }
   }, []);
 
