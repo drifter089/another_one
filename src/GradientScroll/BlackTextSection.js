@@ -76,9 +76,11 @@ const BlackTextSection = () => {
           },
         });
       }, 1000);
-      setHideText(() => {
-        return false;
-      });
+      setTimeout(() => {
+        setHideText(() => {
+          return false;
+        });
+      }, 1100);
     }
   }, []);
 
