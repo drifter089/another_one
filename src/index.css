@@ -178,7 +178,7 @@ code {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  margin-top: 21%;
+  margin-top: 18%;
 }
 
 /* general abstractions */
@@ -271,7 +271,7 @@ code {
   border: 2px solid;
   border-radius: 10%;
   line-height: 1;
-  color: #a972cb;
+  color: white;
   text-align: center;
   text-justify: auto;
   font-size: 2.8vw;
@@ -281,7 +281,7 @@ code {
 }
 .downloadBtn:hover,
 .downloadBtn:focus {
-  box-shadow: 12px 12px 2px 1px #a972cb;
+  box-shadow: 12px 12px 2px 1px white;
   -webkit-transform: translateY(-0.5vh);
   transform: translateY(-0.5vh);
 }

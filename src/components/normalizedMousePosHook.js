@@ -15,11 +15,11 @@ export function useNormalizedMousePosition() {
 
   useEffect(() => {
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("scroll", handleMouseMove);
+    // window.addEventListener("scroll", handleMouseMove);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("scroll", handleMouseMove);
+      // window.removeEventListener("scroll", handleMouseMove);
     };
   }, []);
 
