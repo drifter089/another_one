@@ -27,6 +27,7 @@ const TransparentText = () => {
       const myTemp = gsap.timeline();
 
       setTimeout(() => {
+        once.current = true;
         myTemp.to(textBackgroundRef.current, {
           backgroundPosition: "0 -160vh",
         });
@@ -34,10 +35,10 @@ const TransparentText = () => {
         ScrollTrigger.create({
           animation: myTemp,
           trigger: lastImgRef.current,
-          start: "0% -5%",
+          start: "0% -1%",
           end: "100% 50%",
           scrub: 2,
-          // markers: true,
+          markers: true,
           onEnter: () => {
             setHideText(true);
           },
@@ -51,7 +52,7 @@ const TransparentText = () => {
             setHideText(false);
           },
         });
-      }, 600);
+      }, 200);
     }
   }, []);
 
