@@ -55,7 +55,9 @@ const MainStage = () => {
 
   useEffect(() => {
     if (!once.current) {
+      once.current = true;
       setTimeout(() => {
+        once.current = true;
         textRefArr.map((ref, i) => {
           makeOpacityTimeLine(ref, opacityTimeLineArr[i]);
         });
