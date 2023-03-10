@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useLayoutEffect } from "react";
+import React, { useRef, useEffect, useLayoutEffect, Suspense } from "react";
 import PixelDance from "./PixelDance/PixelDance";
 import { Canvas } from "@react-three/fiber";
 
@@ -35,35 +35,37 @@ const PixelPerfectionist = () => {
           scrub: 2,
           // markers: true,
         });
-      }, 1000);
+      }, 2000);
     }
   }, []);
 
   return (
-    <div
-      className="pannelContainer"
-      ref={mainContainer}
-      style={{ height: "300vh" }}
-    >
+    <Suspense fallback={null}>
       <div
-        className="center "
-        style={{ opacity: 0, top: "130vh" }}
-        ref={textRef}
+        className="pannelContainer"
+        ref={mainContainer}
+        style={{ height: "300vh" }}
       >
-        I'm a Pixel Perfectionist
-      </div>
+        <div
+          className="center "
+          style={{ opacity: 0, top: "130vh" }}
+          ref={textRef}
+        >
+          I'm a Pixel Perfectionist
+        </div>
 
-      <div
-        className="canvasStreach"
-        style={{
-          height: "300vh",
-        }}
-      >
-        <Canvas camera={{ position: [0, 0, 100] }}>
-          <PixelDance />
-        </Canvas>
+        <div
+          className="canvasStreach"
+          style={{
+            height: "300vh",
+          }}
+        >
+          <Canvas camera={{ position: [0, 0, 100] }}>
+            <PixelDance />
+          </Canvas>
+        </div>
       </div>
-    </div>
+    </Suspense>
   );
 };
 

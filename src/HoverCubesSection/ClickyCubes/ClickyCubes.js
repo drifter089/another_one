@@ -158,7 +158,7 @@ const ClickyCubes = ({ selected, setSelected }) => {
           makeRotationTweens(rotationTimelineArr[i], ref, i);
           makeMountTweens(mountTimelineArr[i], ref);
         });
-      }, 100);
+      }, 200);
     }
     mainState.gl.setClearColor(new Color(0x000000), 0);
   }, []);

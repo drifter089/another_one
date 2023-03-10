@@ -1,4 +1,5 @@
 import React, {
+  Suspense,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -94,12 +95,12 @@ const EasterCube = () => {
           pin: mainContainer.current,
           scrub: 2,
         });
-      }, 1000);
+      }, 3000);
     }
   }, []);
 
   return (
-    <>
+    <Suspense fallback={null}>
       <div className="pannelContainer" ref={mainContainer}>
         <div
           className="center  "
@@ -126,16 +127,6 @@ const EasterCube = () => {
           >
             2D
           </div>
-          {/* <div
-            style={{
-              position: "relative",
-              top: -170,
-              height: 250,
-              width: 250,
-              backgroundColor: "pink",
-              margin: "auto",
-            }}
-          ></div> */}
         </div>
         <div
           className="canvasStreach"
@@ -160,7 +151,7 @@ const EasterCube = () => {
           </Canvas>
         </div>
       </div>
-    </>
+    </Suspense>
   );
 };
 

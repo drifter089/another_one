@@ -34,15 +34,7 @@ const ImageHelixScroller = () => {
   let yOffsetCurrent = -yOffset * 4;
   let theta = 0;
 
-  // useEffect(() => {
-  //   if (hideText) {
-  //     canvasDivRef.current.classList.remove("unmount");
-  //   } else {
-  //     canvasDivRef.current.classList.add("unmount");
-  //   }
-  // }, [hideText]);
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     const myTemp = gsap.timeline();
 
     if (!once.current) {
@@ -63,14 +55,6 @@ const ImageHelixScroller = () => {
               },
               "<"
             );
-          // .to(
-          //   blobGroupRef.current.rotation,
-          //   {
-          //     x: yOffsetCurrent / 11,
-          //     y: yOffsetCurrent / 11,
-          //   },
-          //   "<"
-          // );
         }
 
         ScrollTrigger.create({
@@ -81,30 +65,13 @@ const ImageHelixScroller = () => {
           scrub: 1,
           pin: canvasDivRef.current,
           // markers: true,
-          // onEnter: () => {
-          //   setHideText(true);
-          //   console.log("enter");
-          // },
-          // onLeave: () => {
-          //   setHideText(false);
-          //   console.log("left");
-          // },
-          // onEnterBack: () => {
-          //   setHideText(true);
-          //   console.log("enterback");
-          // },
-          // onLeaveBack: () => {
-          //   setHideText(false);
-          //   console.log("leaveback");
-          // },
-          // });
         });
       }, 3000);
     }
   }, []);
 
   return (
-    <>
+    <Suspense fallback={null}>
       <div
         className="mount"
         style={{
@@ -131,18 +98,16 @@ const ImageHelixScroller = () => {
               zIndex: 10,
             }}
           >
-            <Suspense fallback={null}>
-              <group ref={blobGroupRef}>
-                <Blob />
-              </group>
-              <group position={[0, -yOffset * 4, 0]} ref={groupRef}>
-                <PicturePlanes
-                  radius={radius}
-                  yOffset={yOffset}
-                  imagee={[pic1, pic1, pic1, pic1, pic1, pic1, pic1, pic1]}
-                />
-              </group>
-            </Suspense>
+            <group ref={blobGroupRef}>
+              <Blob />
+            </group>
+            <group position={[0, -yOffset * 4, 0]} ref={groupRef}>
+              <PicturePlanes
+                radius={radius}
+                yOffset={yOffset}
+                imagee={[pic1, pic1, pic1, pic1, pic1, pic1, pic1, pic1]}
+              />
+            </group>
             {/* <OrbitControls enableZoom={false} /> */}
           </Canvas>
         </div>
@@ -161,9 +126,9 @@ const ImageHelixScroller = () => {
           zIndex: 6,
         }}
       >
-        <div className="center">and</div>
+        <div className="center">Still not convinced ..?</div>
       </div>
-    </>
+    </Suspense>
   );
 };
 

@@ -4,6 +4,7 @@ import React, {
   useLayoutEffect,
   useState,
   useMemo,
+  Suspense,
 } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import { AxesHelper, Vector3, DoubleSide } from "three";
@@ -78,14 +79,9 @@ const MainStage = () => {
   }, [selectedHTML]);
 
   return (
-    <>
-      <div
-        className="pannelContainer textAlCenter"
-        // style={{
-        //   height: "80vh",
-        // }}
-      >
-        <div
+    <Suspense fallback={null}>
+      <div className="pannelContainer textAlCenter">
+        {/* <div
           style={{
             position: "relative",
             top: "40vh",
@@ -93,7 +89,7 @@ const MainStage = () => {
           }}
         >
           Still not convinced ..?
-        </div>
+        </div> */}
         <div
           style={{
             position: "relative",
@@ -144,7 +140,7 @@ const MainStage = () => {
           ref={btnRef}
         ></div>
       </div>
-    </>
+    </Suspense>
   );
 };
 

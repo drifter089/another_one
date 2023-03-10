@@ -6,7 +6,7 @@ import { useMemo } from "react";
 import { degToRad } from "three/src/math/MathUtils";
 
 const TransparentPhyscisBox = () => {
-  const length = 25;
+  const length = 24;
 
   /**
    * adding axis helper
