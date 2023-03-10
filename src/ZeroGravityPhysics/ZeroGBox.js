@@ -28,39 +28,79 @@ import { DoubleSide } from "three";
 import CenterObjects from "./CenterObjects";
 import TransparentPhyscisBox from "./TransparentPhyscisBox";
 import CameraMovement from "./CameraMovement";
+import gsap from "gsap";
 
 const ZeroGBox = () => {
+  const [clickedOnce, setClickedOnce] = useState(false);
+
+  const clickMeText = useRef();
+  const mainText = useRef();
+
+  useEffect(() => {
+    if (clickedOnce) {
+      console.log("ran");
+      gsap.to(clickMeText.current, {
+        opacity: 0,
+        duration: 0.3,
+      });
+      gsap.to(mainText.current, {
+        opacity: 1,
+        duration: 0.5,
+        delay: 0.5,
+      });
+    }
+  }, [clickedOnce]);
+
   const physicsRef = useRef();
 
   return (
-    <div className="pannelContainer">
-      <div
-        style={{
-          width: "100vw",
-          height: "100vh",
-          zIndex: 6,
-        }}
-        className="canvasStreach"
-      >
-        <Loader />
-        <Canvas shadows dpr={[1, 2]} camera={{ fov: 50, position: [0, 0, 10] }}>
-          {/* <Suspense fallback={null}> */}
-          <Physics colliders={"cuboid"} gravity={[0, 0, 0]} ref={physicsRef}>
-            <CenterObjects />
-            <group position={[0, 0, 5]}>
-              <CenterObjects />
-            </group>
-            <group rotation={[0, 2, 0]}>
+    <Suspense fallback={null}>
+      <div className="pannelContainer">
+        <div
+          style={{
+            width: "100vw",
+            height: "100vh",
+            zIndex: 6,
+          }}
+          className="canvasStreach"
+        >
+          <Loader />
+          <Canvas
+            shadows
+            dpr={[1, 2]}
+            camera={{ fov: 50, position: [0, 0, 10] }}
+          >
+            <Physics colliders={"cuboid"} gravity={[0, 0, 0]} ref={physicsRef}>
+              <CenterObjects setClickedOnce={setClickedOnce} />
               <TransparentPhyscisBox />
-            </group>
-          </Physics>
-          <CameraMovement />
-          {/* </Suspense> */}
-          {/* <OrbitControls /> */}
-        </Canvas>
+            </Physics>
+            <CameraMovement />
+            {/* <OrbitControls /> */}
+          </Canvas>
+        </div>
+        <div
+          style={{
+            position: "relative",
+            fontSize: "8vw",
+            textAlign: "center",
+            top: "40%",
+          }}
+          ref={clickMeText}
+        >
+          click me!
+        </div>
+        <div
+          className="center"
+          style={{
+            opacity: 0,
+            top: "30%",
+          }}
+          ref={mainText}
+        >
+          Meet your next creative developer
+        </div>
       </div>
-      <div className="center">Meet your next creative developer</div>
-    </div>
+    </Suspense>
   );
 };
 

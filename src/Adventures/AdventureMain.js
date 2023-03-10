@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -77,18 +77,18 @@ const AdventureMain = () => {
         ScrollTrigger.create({
           animation: myTimeline,
           trigger: mainContainer.current,
-          // markers: true,
-          start: "200% 200%",
+          markers: true,
+          start: "0% 0%",
           end: "200% 0%",
           pin: mainContainer.current,
           scrub: 1,
         });
-      }, 1000);
+      }, 2000);
     }
   });
 
   return (
-    <>
+    <Suspense fallback={null}>
       <div className="pannelContainer" ref={mainContainer}>
         <div
           className="center"
@@ -111,7 +111,7 @@ const AdventureMain = () => {
           {textBlocks}
         </div>
       </div>
-    </>
+    </Suspense>
   );
 };
 
