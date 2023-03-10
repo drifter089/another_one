@@ -34,7 +34,7 @@ const TransparentText = () => {
         ScrollTrigger.create({
           animation: myTemp,
           trigger: lastImgRef.current,
-          start: "0% 80%",
+          start: "0% -5%",
           end: "100% 50%",
           scrub: 2,
           // markers: true,
@@ -51,7 +51,7 @@ const TransparentText = () => {
             setHideText(false);
           },
         });
-      }, 500);
+      }, 600);
     }
   }, []);
 
