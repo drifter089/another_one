@@ -38,7 +38,7 @@ const TransparentText = () => {
           start: "0% -1%",
           end: "100% 50%",
           scrub: 2,
-          markers: true,
+          // markers: true,
           onEnter: () => {
             setHideText(true);
           },
