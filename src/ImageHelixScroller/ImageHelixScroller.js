@@ -11,7 +11,13 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { MathUtils, AxesHelper } from "three";
 import PicturePlanes from "./PicturePlanes";
 import { degToRad } from "three/src/math/MathUtils";
-import pic1 from ".././assets/images/pic1.jpg";
+import books from ".././assets/images/books.jpg";
+import chess from ".././assets/images/chess.jpg";
+import games from ".././assets/images/games.jpg";
+import stars from ".././assets/images/stars.jpg";
+import singing from ".././assets/images/singing.jpg";
+import hinking from ".././assets/images/hiking.jpg";
+import sunset from ".././assets/images/sunset.jpg";
 
 import Blob from "./Blob/Blob";
 
@@ -105,7 +111,16 @@ const ImageHelixScroller = () => {
               <PicturePlanes
                 radius={radius}
                 yOffset={yOffset}
-                imagee={[pic1, pic1, pic1, pic1, pic1, pic1, pic1, pic1]}
+                imagee={[
+                  books,
+                  chess,
+                  stars,
+                  games,
+                  sunset,
+                  singing,
+                  hinking,
+                  chess,
+                ]}
               />
             </group>
             {/* <OrbitControls enableZoom={false} /> */}
