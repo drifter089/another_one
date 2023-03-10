@@ -61,7 +61,7 @@ const MainStage = () => {
         textRefArr.map((ref, i) => {
           makeOpacityTimeLine(ref, opacityTimeLineArr[i]);
         });
-      }, 1000);
+      }, 2000);
     }
   }, []);
 
@@ -81,7 +81,7 @@ const MainStage = () => {
   }, [selectedHTML]);
 
   return (
-    <Suspense fallback={null}>
+    <>
       <div className="pannelContainer textAlCenter">
         {/* <div
           style={{
@@ -142,7 +142,7 @@ const MainStage = () => {
           ref={btnRef}
         ></div>
       </div>
-    </Suspense>
+    </>
   );
 };
 
