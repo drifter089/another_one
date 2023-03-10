@@ -12,32 +12,32 @@ const PixelPerfectionist = () => {
 
   const once = useRef(false);
 
-  useLayoutEffect(() => {
-    if (!once.current) {
-      once.current = true;
+  // useLayoutEffect(() => {
+  //   if (!once.current) {
+  //     once.current = true;
 
-      const myTemp = gsap.timeline();
+  //     const myTemp = gsap.timeline();
 
-      setTimeout(() => {
-        myTemp
-          .to(textRef.current, {
-            opacity: 1,
-          })
-          .to(textRef.current, {
-            opacity: 0,
-          });
+  //     setTimeout(() => {
+  //       myTemp
+  //         .to(textRef.current, {
+  //           opacity: 1,
+  //         })
+  //         .to(textRef.current, {
+  //           opacity: 0,
+  //         });
 
-        ScrollTrigger.create({
-          animation: myTemp,
-          trigger: mainContainer.current,
-          start: "50% 100%",
-          end: "50% 20%",
-          scrub: 2,
-          // markers: true,
-        });
-      }, 2000);
-    }
-  }, []);
+  //       ScrollTrigger.create({
+  //         animation: myTemp,
+  //         trigger: mainContainer.current,
+  //         start: "50% 100%",
+  //         end: "50% 20%",
+  //         scrub: 2,
+  //         // markers: true,
+  //       });
+  //     }, 2000);
+  //   }
+  // }, []);
 
   return (
     <Suspense fallback={null}>
@@ -48,7 +48,7 @@ const PixelPerfectionist = () => {
       >
         <div
           className="center "
-          style={{ opacity: 0, top: "130vh" }}
+          style={{ opacity: 1, top: "130vh" }}
           ref={textRef}
         >
           I'm a Pixel Perfectionist

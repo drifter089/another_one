@@ -72,12 +72,13 @@ const ImageHelixScroller = () => {
           pin: canvasDivRef.current,
           // markers: true,
         });
-      }, 3000);
+      }, 3200);
     }
   }, []);
 
   return (
-    <Suspense fallback={null}>
+    // <Suspense fallback={null}>
+    <>
       <div
         className="mount"
         style={{
@@ -143,7 +144,8 @@ const ImageHelixScroller = () => {
       >
         <div className="center">Still not convinced ..?</div>
       </div>
-    </Suspense>
+    </>
+    // </Suspense>
   );
 };
 
