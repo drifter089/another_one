@@ -53,16 +53,15 @@ const MainStage = () => {
 
   const btnRef = useRef();
 
-  useEffect(() => {
-    if (!once.current) {
-      once.current = true;
-      setTimeout(() => {
-        once.current = true;
-        textRefArr.map((ref, i) => {
-          makeOpacityTimeLine(ref, opacityTimeLineArr[i]);
-        });
-      }, 2000);
-    }
+  useLayoutEffect(() => {
+    // if (!once.current) {
+    //   once.current = true;
+    //   setTimeout(() => {
+    textRefArr.map((ref, i) => {
+      makeOpacityTimeLine(ref, opacityTimeLineArr[i]);
+    });
+    // }, 800);
+    // }
   }, []);
 
   useEffect(() => {
