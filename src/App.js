@@ -50,31 +50,23 @@ function App() {
   return (
     <>
       {/* <Hero /> */}
-      <Suspense fallback={<Loading />}>
-        <ZeroGBox />
-        <PixelPerfectionist />
-        <GradientScroll />
-        <EasterCube />
-        <InteractiveLove />
-        <div
-          className="pannelContainer textAlCenter"
-          style={{
-            height: "10vh",
-          }}
-        >
-          Yet make free time
-        </div>
-        <ImageHelixScroller />
-        {/* <AdventureMain /> */}
-        <MainStage />
-        <div
-          className="pannelContainer"
-          style={{
-            height: "40vh",
-          }}
-        ></div>
-        <ContactForm />
-      </Suspense>
+      {/* <Suspense fallback={<Loading />}> */}
+      <ZeroGBox />
+      <PixelPerfectionist />
+      <GradientScroll />
+      <EasterCube />
+      <InteractiveLove />
+      <ImageHelixScroller />
+      <AdventureMain />
+      <MainStage />
+      <div
+        className="pannelContainer"
+        style={{
+          height: "40vh",
+        }}
+      ></div>
+      <ContactForm />
+      {/* </Suspense> */}
       {/* <div
       className="pannelContainer"
       style={{

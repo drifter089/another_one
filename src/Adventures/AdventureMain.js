@@ -1,4 +1,10 @@
-import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  Suspense,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -22,7 +28,7 @@ const AdventureMain = () => {
             display: "inline-block",
             position: "relative",
             fontWeight: 700,
-            fontSize: "14vw",
+            fontSize: "13vw",
           }}
           ref={tempRef}
           key={i}
@@ -35,83 +41,79 @@ const AdventureMain = () => {
     return arr;
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!once.current) {
       once.current = true;
-      setTimeout(() => {
-        const myTimeline = gsap.timeline();
+      const myTimeline = gsap.timeline();
 
-        myTimeline
-          .to(AdvTextRef.current, {
-            opacity: 1,
-          })
-          .to(AdvTextRef.current, {
-            x: -AdvTextRef.current.scrollWidth - 100,
-          });
-
-        for (let i = 0; i < spanRefsArr.current.length; i++) {
-          const spanRef = spanRefsArr.current.at(i);
-          if (i == 0) {
-            myTimeline.from(
-              spanRef.current,
-              {
-                y: (i + 1) * i * 6 + "vh",
-                // opacity: 1,
-              },
-              "<-28%"
-            );
-          } else {
-            myTimeline.from(
-              spanRef.current,
-              {
-                y: (i + 1) * i * 10 + "vh",
-                opacity: 1,
-              },
-              "<"
-            );
-          }
-        }
-
-        console.log(AdvTextRef.current.scrollWidth - window.innerHeight);
-
-        ScrollTrigger.create({
-          animation: myTimeline,
-          trigger: mainContainer.current,
-          markers: true,
-          start: "0% 0%",
-          end: "200% 0%",
-          pin: mainContainer.current,
-          scrub: 1,
+      myTimeline
+        .to(AdvTextRef.current, {
+          opacity: 1,
+        })
+        .to(AdvTextRef.current, {
+          x: -AdvTextRef.current.scrollWidth - 100,
         });
-      }, 2000);
+
+      for (let i = 0; i < spanRefsArr.current.length; i++) {
+        const spanRef = spanRefsArr.current.at(i);
+        if (i == 0) {
+          myTimeline.from(
+            spanRef.current,
+            {
+              y: (i + 1) * i * 6 + "vh",
+              // opacity: 1,
+            },
+            "<-28%"
+          );
+        } else {
+          myTimeline.from(
+            spanRef.current,
+            {
+              y: (i + 1) * i * 10 + "vh",
+              opacity: 1,
+            },
+            "<"
+          );
+        }
+      }
+
+      console.log(AdvTextRef.current.scrollWidth - window.innerHeight);
+
+      ScrollTrigger.create({
+        animation: myTimeline,
+        trigger: mainContainer.current,
+        // markers: true,
+        start: "0% 0%",
+        end: "200% 0%",
+        pin: mainContainer.current,
+        scrub: 1,
+      });
     }
   });
 
   return (
-    <Suspense fallback={null}>
-      <div className="pannelContainer" ref={mainContainer}>
-        <div
-          className="center"
-          style={{
-            top: "10%",
-          }}
-        >
-          I am up for new
-        </div>
-        <div
-          style={{
-            position: "relative",
-            top: "50%",
-            left: "100vw",
-            opacity: 0,
-            display: "flex",
-          }}
-          ref={AdvTextRef}
-        >
-          {textBlocks}
-        </div>
+    <div className="pannelContainer" ref={mainContainer}>
+      <div
+        className="center"
+        style={{
+          top: "10%",
+        }}
+      >
+        I am up for new
       </div>
-    </Suspense>
+      <div
+        style={{
+          position: "relative",
+          top: "50%",
+          left: "100vw",
+          opacity: 0,
+          display: "flex",
+        }}
+        ref={AdvTextRef}
+      >
+        {textBlocks}
+      </div>
+    </div>
   );
 };
 

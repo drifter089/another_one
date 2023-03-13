@@ -89,63 +89,6 @@ code {
   height: 20vh;
 }
 
-/* flaws -> following eyes */
-.eyesContainer {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  z-index: 3;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-
-  @keyframes blink {
-    0% {
-      top: -120px;
-    }
-    95% {
-      top: -120px;
-    }
-    100% {
-      top: -50px;
-    }
-  }
-}
-
-.eyes {
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.eye {
-  border-radius: 50%;
-  height: 90px;
-  width: 90px;
-  background-color: #f3efef;
-}
-
-.pupil {
-  position: absolute;
-  background-color: #382e25;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  left: 50px;
-  top: 35px;
-}
-
 /* Gradient scroll */
 .rotate {
   transform: rotate(180deg);
@@ -284,4 +227,64 @@ code {
   box-shadow: 12px 12px 2px 1px white;
   -webkit-transform: translateY(-0.5vh);
   transform: translateY(-0.5vh);
+}
+
+/* Easter Cube */
+
+.fourDCubeBackground {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  z-index: 3;
+  background-color: black;
+  opacity: 1;
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  justify-content: center;
+  align-items: center;
+}
+
+.bottomBig {
+  font-size: 30vw;
+}
+
+.fourDCubeContainer {
+  position: absolute;
+  top: 0;
+  z-index: 4;
+  /* background-color: #c060ff; */
+  opacity: 0;
+  opacity: 1;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Image helix scroller */
+.helixCanvasContainer {
+  position: absolute;
+  z-index: 2;
+  height: 100vh;
+  width: 100vw;
+  /* background-color: #c060ff;
+  opacity: 0.8; */
+}
+.pinCanvas {
+  position: fixed !important;
+  z-index: 2 !important;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+}
+.lastOverlayHelix {
+  position: relative;
+  background-color: black;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  z-index: 3 !important;
+  justify-content: center;
+  align-items: center;
 }
