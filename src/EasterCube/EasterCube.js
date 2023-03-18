@@ -96,7 +96,6 @@ const EasterCube = () => {
         <div className="fourDCubeContainer">
           <Canvas camera={{ position: [0, 0, 10] }}>
             <Suspense fallback={null}>
-              <Loader />
               <SinglePlane ref={rotationAnimationRef} />
             </Suspense>
           </Canvas>
@@ -111,7 +110,6 @@ const EasterCube = () => {
           <Canvas camera={{ position: [0, 0, 10] }}>
             <Suspense fallback={null}>
               <SingleCube ref={rotationAnimationRef} />
-              <Loader />
             </Suspense>
           </Canvas>
         </div>

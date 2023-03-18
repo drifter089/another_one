@@ -26,27 +26,6 @@ import Loading from "./Loading/Loading";
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-  const once = useRef(false);
-
-  useEffect(() => {
-    if (!once.current) {
-      once.current = true;
-      setTimeout(() => {
-        const myTimeline = gsap.timeline();
-
-        // ScrollTrigger.create({
-        //   animation: myTimeline,
-        //   trigger: mainContainer.current,
-        //   markers: true,
-        //   start: "200% 200%",
-        //   end: "200% 0%",
-        //   pin: mainContainer.current,
-        //   scrub: 2,
-        // });
-      }, 1000);
-    }
-  });
-
   return (
     <>
       {/* <Hero /> */}

@@ -25,17 +25,67 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { Timeline } from "gsap/gsap-core";
 gsap.registerPlugin(ScrollTrigger);
 
+const GroupedAnimationCubes = React.forwardRef(
+  ({ setSelected, index, data }, ref) => {
+    const groupRef = useRef();
+
+    useFrame(() => {
+      groupRef.current.rotation.x = ref.current.rotation.x;
+      groupRef.current.rotation.y = ref.current.rotation.y;
+      groupRef.current.rotation.z = ref.current.rotation.z;
+      groupRef.current.position.x = ref.current.position.x;
+      groupRef.current.position.y = ref.current.position.y;
+      groupRef.current.position.z = ref.current.position.z;
+      groupRef.current.children[0].material.uniforms.shaderOpacityRef.value =
+        ref.current.shaderOpacity;
+    });
+
+    return (
+      <>
+        <group position={[0, -12, 0]} ref={groupRef} key={index}>
+          <OuterCube setSelected={setSelected} index={index} key={index} />
+          <InnerCube data={data} />
+        </group>
+      </>
+    );
+  }
+);
+
 const ClickyCubes = ({ selected, setSelected }) => {
   /**
    * creting refs
    */
 
-  const groupRef0 = React.createRef();
-  const groupRef1 = React.createRef();
-  const groupRef2 = React.createRef();
-  const groupRef3 = React.createRef();
-  const groupRef4 = React.createRef();
-  const groupRef5 = React.createRef();
+  const groupRef0 = useRef({
+    position: { x: 0, y: 0, z: 0 },
+    rotation: { x: 0, y: 0, z: 0 },
+    shaderOpacity: 0.7,
+  });
+  const groupRef1 = useRef({
+    position: { x: 0, y: 0, z: 0 },
+    rotation: { x: 0, y: 0, z: 0 },
+    shaderOpacity: 0.7,
+  });
+  const groupRef2 = useRef({
+    position: { x: 0, y: 0, z: 0 },
+    rotation: { x: 0, y: 0, z: 0 },
+    shaderOpacity: 0.7,
+  });
+  const groupRef3 = useRef({
+    position: { x: 0, y: 0, z: 0 },
+    rotation: { x: 0, y: 0, z: 0 },
+    shaderOpacity: 0.7,
+  });
+  const groupRef4 = useRef({
+    position: { x: 0, y: 0, z: 0 },
+    rotation: { x: 0, y: 0, z: 0 },
+    shaderOpacity: 0.7,
+  });
+  const groupRef5 = useRef({
+    position: { x: 0, y: 0, z: 0 },
+    rotation: { x: 0, y: 0, z: 0 },
+    shaderOpacity: 0.7,
+  });
 
   const groupRefArr = useMemo(
     () => [groupRef0, groupRef1, groupRef2, groupRef3, groupRef4, groupRef5],
@@ -69,31 +119,8 @@ const ClickyCubes = ({ selected, setSelected }) => {
 
   const mountTimelineArr = useMemo(() => [m1, m2, m3, m4, m5, m6], []);
 
-  /**
-   * Generating Cubes
-   */
-
   const radius = 13;
   const theta = 60;
-
-  const vedioArr = useMemo(() => [ved1, ved2, ved3, ved4, ved5, ved6], []);
-
-  const groupedCubes = useMemo(() => {
-    const result = groupRefArr.map((ref, index) => {
-      return (
-        <OuterCube
-          innerCube={InnerCube}
-          setSelected={setSelected}
-          index={index}
-          key={index}
-          ref={ref}
-          data={vedioArr[index]}
-        />
-      );
-    });
-
-    return result;
-  }, [radius]);
 
   /**
    * cubes initial mount
@@ -129,9 +156,9 @@ const ClickyCubes = ({ selected, setSelected }) => {
         duration: 1.5,
       })
       .to(
-        ref.current.children[0].material.uniforms.shaderOpacityRef,
+        ref.current,
         {
-          value: 0,
+          shaderOpacity: 0,
           duration: 1.5,
         },
         "<"
@@ -141,24 +168,22 @@ const ClickyCubes = ({ selected, setSelected }) => {
   useLayoutEffect(() => {
     if (!once.current) {
       once.current = true;
-      setTimeout(() => {
-        groupRefArr.map((ref, i) => {
-          // calculate position
-          const angle = i * theta;
-          let x = radius * Math.cos(degToRad(angle));
-          let y = radius * Math.sin(degToRad(angle));
+      groupRefArr.map((ref, i) => {
+        // calculate position
+        const angle = i * theta;
+        let x = radius * Math.cos(degToRad(angle));
+        let y = radius * Math.sin(degToRad(angle));
 
-          // moving to position
-          gsap.to(ref.current.position, {
-            x: x,
-            y: y,
-          });
-
-          // creating tweens for mount and unmount
-          makeRotationTweens(rotationTimelineArr[i], ref, i);
-          makeMountTweens(mountTimelineArr[i], ref);
+        // moving to position
+        gsap.to(ref.current.position, {
+          x: x,
+          y: y,
         });
-      }, 3000);
+
+        // creating tweens for mount and unmount
+        makeRotationTweens(rotationTimelineArr[i], ref, i);
+        makeMountTweens(mountTimelineArr[i], ref);
+      });
     }
     mainState.gl.setClearColor(new Color(0x000000), 0);
   }, []);
@@ -181,7 +206,52 @@ const ClickyCubes = ({ selected, setSelected }) => {
     };
   }, [selected]);
 
-  return <>{groupedCubes}</>;
+  return (
+    <>
+      <GroupedAnimationCubes
+        setSelected={setSelected}
+        index={0}
+        key={0}
+        data={ved1}
+        ref={groupRef0}
+      />
+      <GroupedAnimationCubes
+        setSelected={setSelected}
+        index={1}
+        key={1}
+        data={ved2}
+        ref={groupRef1}
+      />
+      <GroupedAnimationCubes
+        setSelected={setSelected}
+        index={2}
+        key={2}
+        data={ved3}
+        ref={groupRef2}
+      />
+      <GroupedAnimationCubes
+        setSelected={setSelected}
+        index={3}
+        key={3}
+        data={ved4}
+        ref={groupRef3}
+      />
+      <GroupedAnimationCubes
+        setSelected={setSelected}
+        index={4}
+        key={4}
+        data={ved5}
+        ref={groupRef4}
+      />
+      <GroupedAnimationCubes
+        setSelected={setSelected}
+        index={5}
+        key={5}
+        data={ved6}
+        ref={groupRef5}
+      />
+    </>
+  );
 };
 
 export default ClickyCubes;
