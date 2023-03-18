@@ -6,7 +6,7 @@ import React, {
   useEffect,
   Suspense,
 } from "react";
-import { OrbitControls } from "@react-three/drei";
+import { Loader, OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { MathUtils, AxesHelper } from "three";
 import PicturePlanes from "./PicturePlanes";
@@ -25,78 +25,112 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
+const AnimationStage = React.forwardRef(({ radius, yOffset }, ref) => {
+  const groupRef = useRef();
+
+  useFrame(() => {
+    groupRef.current.rotation.y = ref.current.rotation.y;
+    groupRef.current.position.y = ref.current.position.y;
+  });
+
+  return (
+    <>
+      <group position={[0, -12, 0]} ref={groupRef}>
+        <PicturePlanes
+          radius={radius}
+          yOffset={yOffset}
+          imagee={[books, chess, stars, games, sunset, singing, hinking, chess]}
+        />
+      </group>
+      {/* <OrbitControls /> */}
+    </>
+  );
+});
+
 const ImageHelixScroller = () => {
-  const [hideText, setHideText] = useState(false);
+  const [pinHelixCanvas, setPinHelixCanvas] = useState(false);
+
+  const canvasRelativeParentRef = useRef();
+  const canvasDivRef = useRef();
 
   const once = useRef(false);
-
-  const lastImgRef = useRef();
-  const groupRef = useRef();
-  const blobGroupRef = useRef();
-  const canvasDivRef = useRef();
 
   const radius = 7;
   let yOffset = 3;
   let yOffsetCurrent = -yOffset * 4;
   let theta = 0;
 
-  useLayoutEffect(() => {
-    const myTemp = gsap.timeline();
+  const animationDataRef = useRef({
+    rotation: {
+      y: 0,
+    },
+    position: {
+      y: yOffsetCurrent,
+    },
+  });
 
+  useEffect(() => {
+    if (pinHelixCanvas) {
+      canvasDivRef.current.classList.add("pinCanvas");
+      console.log("pinned");
+    } else {
+      canvasDivRef.current.classList.remove("pinCanvas");
+      console.log("removed");
+    }
+  }, [pinHelixCanvas]);
+
+  useLayoutEffect(() => {
     if (!once.current) {
       once.current = true;
-      setTimeout(() => {
-        for (let i = 0; i < 7; i++) {
-          theta = theta + 45;
-          yOffsetCurrent = yOffsetCurrent + yOffset;
+      const myTemp = gsap.timeline();
 
-          myTemp
-            .to(groupRef.current.rotation, {
-              y: degToRad(theta),
-            })
-            .to(
-              groupRef.current.position,
-              {
-                y: yOffsetCurrent,
-              },
-              "<"
-            );
-        }
+      console.log("reeeeeeeeeeeeeeen");
+      for (let i = 0; i < 7; i++) {
+        theta = theta + 45;
+        yOffsetCurrent = yOffsetCurrent + yOffset;
 
-        ScrollTrigger.create({
-          animation: myTemp,
-          trigger: lastImgRef.current,
-          start: "0% 0%",
-          end: "800% 100%",
-          scrub: 1,
-          pin: canvasDivRef.current,
-          // markers: true,
-        });
-      }, 3200);
+        myTemp
+          .to(animationDataRef.current.rotation, {
+            y: degToRad(theta),
+          })
+          .to(
+            animationDataRef.current.position,
+            {
+              y: yOffsetCurrent,
+            },
+            "<"
+          );
+      }
+
+      ScrollTrigger.create({
+        animation: myTemp,
+        trigger: canvasRelativeParentRef.current,
+        start: "0% 0%",
+        end: "800% 0%",
+        scrub: 1,
+        // markers: true,
+        onEnter: () => {
+          setPinHelixCanvas(true);
+        },
+        onLeave: () => {
+          setPinHelixCanvas(false);
+        },
+        onEnterBack: () => {
+          setPinHelixCanvas(true);
+        },
+        onLeaveBack: () => {
+          setPinHelixCanvas(false);
+        },
+      });
     }
   }, []);
 
   return (
-    // <Suspense fallback={null}>
     <>
-      <div
-        className="mount"
-        style={{
-          position: "sticky",
-          height: "100vh",
-        }}
-        ref={lastImgRef}
-      >
-        <div
-          // className="unmount"
-          className="canvasStreach"
-          ref={canvasDivRef}
-          style={{
-            width: "100vw",
-            height: "100vh",
-            zIndex: 10,
-          }}
-        >
+      <div className="lastOverlayHelix">Yet make free time</div>
+
+      <div className="pannelContainer" ref={canvasRelativeParentRef}>
+        <div className="helixCanvasContainer" ref={canvasDivRef}>
           <Canvas
             camera={{ position: [12.0, 0, 0] }}
             style={{
@@ -105,26 +139,14 @@ const ImageHelixScroller = () => {
               zIndex: 10,
             }}
           >
-            <group ref={blobGroupRef}>
+            <Suspense fallback={null}>
               <Blob />
-            </group>
-            <group position={[0, -yOffset * 4, 0]} ref={groupRef}>
-              <PicturePlanes
+              <AnimationStage
                 radius={radius}
                 yOffset={yOffset}
-                imagee={[
-                  books,
-                  chess,
-                  stars,
-                  games,
-                  sunset,
-                  singing,
-                  hinking,
-                  chess,
-                ]}
+                ref={animationDataRef}
               />
-            </group>
-            {/* <OrbitControls enableZoom={false} /> */}
+            </Suspense>
           </Canvas>
         </div>
       </div>
@@ -134,18 +156,11 @@ const ImageHelixScroller = () => {
       <div className="pannelContainer"></div>
       <div className="pannelContainer"></div>
       <div className="pannelContainer"></div>
-      <div
-        className="pannelContainer "
-        style={{
-          opacity: 1,
-          backgroundColor: "black",
-          zIndex: 6,
-        }}
-      >
-        <div className="center">Still not convinced ..?</div>
+      <div className="pannelContainer"></div>
+      <div className="pannelContainer ">
+        <div className="lastOverlayHelix">and</div>
       </div>
     </>
-    // </Suspense>
   );
 };
 

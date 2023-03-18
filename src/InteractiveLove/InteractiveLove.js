@@ -1,43 +1,42 @@
 import React, { Suspense } from "react";
 import SecondCanvas from "./Interactive/SecondCanvas";
 import { Canvas } from "@react-three/fiber";
+import { Loader } from "@react-three/drei";
 
 const InteractiveLove = () => {
   return (
-    <Suspense fallback={null}>
+    <div
+      className="pannelContainer"
+      style={{
+        height: "250vh",
+      }}
+    >
       <div
-        className="pannelContainer"
+        className="center "
         style={{
+          top: "30%",
+        }}
+      >
+        who enjoys making things interactive
+      </div>
+      <div
+        className="canvasStreach"
+        style={{
+          zIndex: 1,
           height: "250vh",
         }}
       >
-        <div
-          className="center "
-          style={{
-            top: "30%",
+        <Canvas
+          shadows
+          camera={{ position: [0, 0, 80], fov: 35, near: 1, far: 200 }}
+          onCreated={(state) => {
+            state.scene.backgroundBlurriness = 0.4;
           }}
         >
-          who enjoys making things interactive
-        </div>
-        <div
-          className="canvasStreach"
-          style={{
-            zIndex: 1,
-            height: "250vh",
-          }}
-        >
-          <Canvas
-            shadows
-            camera={{ position: [0, 0, 80], fov: 35, near: 1, far: 200 }}
-            onCreated={(state) => {
-              state.scene.backgroundBlurriness = 0.4;
-            }}
-          >
-            <SecondCanvas />
-          </Canvas>
-        </div>
+          <SecondCanvas />
+        </Canvas>
       </div>
-    </Suspense>
+    </div>
   );
 };
 

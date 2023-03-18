@@ -4,7 +4,7 @@ import TransparentText from "./TransparentText";
 
 const GradientScroll = () => {
   return (
-    <Suspense fallback={null}>
+    <>
       <TransparentText />
       <div
         style={{
@@ -19,7 +19,7 @@ const GradientScroll = () => {
         }}
         className="pannelContainer"
       ></div>
-    </Suspense>
+    </>
   );
 };
 
