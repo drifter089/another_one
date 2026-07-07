@@ -1,11 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useLayoutEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const TransparentText = () => {
-  const once = useRef(false);
-
   const lastImgRef = useRef();
 
   const textBackgroundRef = useRef();
@@ -20,40 +18,33 @@ const TransparentText = () => {
     }
   }, [hideText]);
 
-  useEffect(() => {
-    if (!once.current) {
-      once.current = true;
+  useLayoutEffect(() => {
+    const myTemp = gsap.timeline();
 
-      const myTemp = gsap.timeline();
+    myTemp.to(textBackgroundRef.current, {
+      backgroundPosition: "0 -160vh",
+    });
 
-      setTimeout(() => {
-        once.current = true;
-        myTemp.to(textBackgroundRef.current, {
-          backgroundPosition: "0 -160vh",
-        });
-
-        ScrollTrigger.create({
-          animation: myTemp,
-          trigger: lastImgRef.current,
-          start: "0% -1%",
-          end: "100% 50%",
-          scrub: 2,
-          // markers: true,
-          onEnter: () => {
-            setHideText(true);
-          },
-          onLeave: () => {
-            setHideText(false);
-          },
-          onEnterBack: () => {
-            setHideText(true);
-          },
-          onLeaveBack: () => {
-            setHideText(false);
-          },
-        });
-      }, 200);
-    }
+    ScrollTrigger.create({
+      animation: myTemp,
+      trigger: lastImgRef.current,
+      start: "0% -1%",
+      end: "100% 50%",
+      scrub: 2,
+      // markers: true,
+      onEnter: () => {
+        setHideText(true);
+      },
+      onLeave: () => {
+        setHideText(false);
+      },
+      onEnterBack: () => {
+        setHideText(true);
+      },
+      onLeaveBack: () => {
+        setHideText(false);
+      },
+    });
   }, []);
 
   return (

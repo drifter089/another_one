@@ -30,7 +30,7 @@ import TransparentPhyscisBox from "./TransparentPhyscisBox";
 import CameraMovement from "./CameraMovement";
 import gsap from "gsap";
 
-const ZeroGBox = () => {
+function ZeroGBox() {
   const [clickedOnce, setClickedOnce] = useState(false);
 
   const clickMeText = useRef();
@@ -51,57 +51,50 @@ const ZeroGBox = () => {
     }
   }, [clickedOnce]);
 
-  const physicsRef = useRef();
-
   return (
-    <Suspense fallback={null}>
-      <div className="pannelContainer">
-        <div
-          style={{
-            width: "100vw",
-            height: "100vh",
-            zIndex: 6,
-          }}
-          className="canvasStreach"
-        >
-          <Loader />
-          <Canvas
-            shadows
-            dpr={[1, 2]}
-            camera={{ fov: 50, position: [0, 0, 10] }}
-          >
-            <Physics colliders={"cuboid"} gravity={[0, 0, 0]} ref={physicsRef}>
+    <div className="pannelContainer">
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          zIndex: 6,
+        }}
+        className="canvasStreach"
+      >
+        <Canvas shadows dpr={[1, 2]} camera={{ fov: 50, position: [0, 0, 10] }}>
+          <Physics colliders={"cuboid"} gravity={[0, 0, 0]}>
+            <Suspense fallback={null}>
               <CenterObjects setClickedOnce={setClickedOnce} />
               <TransparentPhyscisBox />
-            </Physics>
-            <CameraMovement />
-            {/* <OrbitControls /> */}
-          </Canvas>
-        </div>
-        <div
-          style={{
-            position: "relative",
-            fontSize: "8vw",
-            textAlign: "center",
-            top: "40%",
-          }}
-          ref={clickMeText}
-        >
-          click me!
-        </div>
-        <div
-          className="center"
-          style={{
-            opacity: 0,
-            top: "30%",
-          }}
-          ref={mainText}
-        >
-          Meet your next creative developer
-        </div>
+            </Suspense>
+          </Physics>
+          <CameraMovement />
+          {/* <OrbitControls /> */}
+        </Canvas>
       </div>
-    </Suspense>
+      <div
+        style={{
+          position: "relative",
+          fontSize: "8vw",
+          textAlign: "center",
+          top: "40%",
+        }}
+        ref={clickMeText}
+      >
+        click me!
+      </div>
+      <div
+        className="center"
+        style={{
+          opacity: 0,
+          top: "30%",
+        }}
+        ref={mainText}
+      >
+        Meet your next creative developer
+      </div>
+    </div>
   );
-};
+}
 
 export default ZeroGBox;

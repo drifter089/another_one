@@ -54,14 +54,12 @@ const MainStage = () => {
   const btnRef = useRef();
 
   useLayoutEffect(() => {
-    // if (!once.current) {
-    //   once.current = true;
-    //   setTimeout(() => {
-    textRefArr.map((ref, i) => {
-      makeOpacityTimeLine(ref, opacityTimeLineArr[i]);
-    });
-    // }, 800);
-    // }
+    if (!once.current) {
+      once.current = true;
+      textRefArr.map((ref, i) => {
+        makeOpacityTimeLine(ref, opacityTimeLineArr[i]);
+      });
+    }
   }, []);
 
   useEffect(() => {
@@ -82,7 +80,7 @@ const MainStage = () => {
   return (
     <>
       <div className="pannelContainer textAlCenter">
-        {/* <div
+        <div
           style={{
             position: "relative",
             top: "40vh",
@@ -90,7 +88,7 @@ const MainStage = () => {
           }}
         >
           Still not convinced ..?
-        </div> */}
+        </div>
         <div
           style={{
             position: "relative",

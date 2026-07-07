@@ -7,8 +7,6 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const BlackTextSection = () => {
-  const once = useRef(false);
-
   const lastImgRef = useRef();
   const overlayTextRef = useRef();
   const overlayTextSpanRef = useRef();
@@ -26,36 +24,31 @@ const BlackTextSection = () => {
   }, [hideText]);
 
   useLayoutEffect(() => {
-    if (!once.current) {
-      once.current = true;
-      // setTimeout(() => {
-      ScrollTrigger.create({
-        // animation: myTemp,
-        trigger: lastImgRef.current,
+    ScrollTrigger.create({
+      // animation: myTemp,
+      trigger: lastImgRef.current,
 
-        start: "0% 50%",
-        end: "100% 50%",
-        scrub: 2,
-        // markers: true,
-        onEnter: () => {
-          setHideText(true);
-          // console.log("enter");
-        },
-        onLeave: () => {
-          setHideText(false);
-          // console.log("left");
-        },
-        onEnterBack: () => {
-          setHideText(true);
-          // console.log("enterback");
-        },
-        onLeaveBack: () => {
-          setHideText(false);
-          // console.log("leaveback");
-        },
-      });
-      // }, 1000);
-    }
+      start: "0% 50%",
+      end: "100% 50%",
+      scrub: 2,
+      // markers: true,
+      onEnter: () => {
+        setHideText(true);
+        // console.log("enter");
+      },
+      onLeave: () => {
+        setHideText(false);
+        // console.log("left");
+      },
+      onEnterBack: () => {
+        setHideText(true);
+        // console.log("enterback");
+      },
+      onLeaveBack: () => {
+        setHideText(false);
+        // console.log("leaveback");
+      },
+    });
   }, []);
 
   return (

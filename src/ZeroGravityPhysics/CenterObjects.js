@@ -73,6 +73,7 @@ function CenterObjects({
           position={[x, y, z]}
           restitution={1.3}
           angularDamping={0.4}
+          key={tempKey}
         >
           <mesh onClick={clickHandler} rotation={[x, y, z]}>
             <boxBufferGeometry args={[3, 1, 1]} />

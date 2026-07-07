@@ -165,7 +165,9 @@ function ImpossibleCube() {
             <meshNormalMaterial ref={materialRef6} />
           </mesh>
         </Portal>
-        <Model scale={[2.5, 2.5, 2.5]} ref={skeleton} />
+        <group ref={skeleton}>
+          <Model scale={[2.5, 2.5, 2.5]} />
+        </group>
       </group>
 
       <OrbitControls enableDamping={true} enableZoom={false} />
