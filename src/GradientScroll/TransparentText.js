@@ -25,7 +25,7 @@ const TransparentText = () => {
       backgroundPosition: "0 -160vh",
     });
 
-    ScrollTrigger.create({
+    const trigger = ScrollTrigger.create({
       animation: myTemp,
       trigger: lastImgRef.current,
       start: "0% -1%",
@@ -45,6 +45,11 @@ const TransparentText = () => {
         setHideText(false);
       },
     });
+
+    return () => {
+      trigger.kill();
+      myTemp.kill();
+    };
   }, []);
 
   return (

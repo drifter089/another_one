@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useVideoTexture } from "@react-three/drei";
 
 function VideoMaterial({ url }) {
@@ -12,7 +12,9 @@ const InnerCube = ({ data }) => {
       <boxGeometry args={[2, 2, 2]} />
       {/* <meshNormalMaterial /> */}
       {/* <meshBasicMaterial color={"pink"} /> */}
-      <VideoMaterial url={data} />
+      <Suspense fallback={<meshBasicMaterial color="black" />}>
+        <VideoMaterial url={data} />
+      </Suspense>
     </mesh>
   );
 };

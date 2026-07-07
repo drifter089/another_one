@@ -2,13 +2,10 @@ import React, {
   useState,
   useRef,
   useLayoutEffect,
-  useMemo,
   useEffect,
   Suspense,
 } from "react";
-import { Loader, OrbitControls } from "@react-three/drei";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { MathUtils, AxesHelper } from "three";
+import { Canvas, useFrame } from "@react-three/fiber";
 import PicturePlanes from "./PicturePlanes";
 import { degToRad } from "three/src/math/MathUtils";
 import books from ".././assets/images/books.jpg";
@@ -25,6 +22,8 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
+const helixImages = [books, chess, stars, games, sunset, singing, hinking, chess];
+
 const AnimationStage = React.forwardRef(({ radius, yOffset }, ref) => {
   const groupRef = useRef();
 
@@ -34,16 +33,9 @@ const AnimationStage = React.forwardRef(({ radius, yOffset }, ref) => {
   });
 
   return (
-    <>
-      <group position={[0, -12, 0]} ref={groupRef}>
-        <PicturePlanes
-          radius={radius}
-          yOffset={yOffset}
-          imagee={[books, chess, stars, games, sunset, singing, hinking, chess]}
-        />
-      </group>
-      {/* <OrbitControls /> */}
-    </>
+    <group position={[0, -12, 0]} ref={groupRef}>
+      <PicturePlanes radius={radius} yOffset={yOffset} imagee={helixImages} />
+    </group>
   );
 });
 
@@ -53,76 +45,73 @@ const ImageHelixScroller = () => {
   const canvasRelativeParentRef = useRef();
   const canvasDivRef = useRef();
 
-  const once = useRef(false);
-
   const radius = 7;
-  let yOffset = 3;
-  let yOffsetCurrent = -yOffset * 4;
-  let theta = 0;
+  const yOffset = 3;
 
   const animationDataRef = useRef({
     rotation: {
       y: 0,
     },
     position: {
-      y: yOffsetCurrent,
+      y: -yOffset * 4,
     },
   });
 
   useEffect(() => {
     if (pinHelixCanvas) {
       canvasDivRef.current.classList.add("pinCanvas");
-      console.log("pinned");
     } else {
       canvasDivRef.current.classList.remove("pinCanvas");
-      console.log("removed");
     }
   }, [pinHelixCanvas]);
 
   useLayoutEffect(() => {
-    if (!once.current) {
-      once.current = true;
-      const myTemp = gsap.timeline();
+    const myTemp = gsap.timeline();
 
-      console.log("reeeeeeeeeeeeeeen");
-      for (let i = 0; i < 7; i++) {
-        theta = theta + 45;
-        yOffsetCurrent = yOffsetCurrent + yOffset;
+    let theta = 0;
+    let yOffsetCurrent = -yOffset * 4;
+    for (let i = 0; i < 7; i++) {
+      theta = theta + 45;
+      yOffsetCurrent = yOffsetCurrent + yOffset;
 
-        myTemp
-          .to(animationDataRef.current.rotation, {
-            y: degToRad(theta),
-          })
-          .to(
-            animationDataRef.current.position,
-            {
-              y: yOffsetCurrent,
-            },
-            "<"
-          );
-      }
-
-      ScrollTrigger.create({
-        animation: myTemp,
-        trigger: canvasRelativeParentRef.current,
-        start: "0% 0%",
-        end: "800% 0%",
-        scrub: 1,
-        // markers: true,
-        onEnter: () => {
-          setPinHelixCanvas(true);
-        },
-        onLeave: () => {
-          setPinHelixCanvas(false);
-        },
-        onEnterBack: () => {
-          setPinHelixCanvas(true);
-        },
-        onLeaveBack: () => {
-          setPinHelixCanvas(false);
-        },
-      });
+      myTemp
+        .to(animationDataRef.current.rotation, {
+          y: degToRad(theta),
+        })
+        .to(
+          animationDataRef.current.position,
+          {
+            y: yOffsetCurrent,
+          },
+          "<"
+        );
     }
+
+    const trigger = ScrollTrigger.create({
+      animation: myTemp,
+      trigger: canvasRelativeParentRef.current,
+      start: "0% 0%",
+      end: "800% 0%",
+      scrub: 1,
+      // markers: true,
+      onEnter: () => {
+        setPinHelixCanvas(true);
+      },
+      onLeave: () => {
+        setPinHelixCanvas(false);
+      },
+      onEnterBack: () => {
+        setPinHelixCanvas(true);
+      },
+      onLeaveBack: () => {
+        setPinHelixCanvas(false);
+      },
+    });
+
+    return () => {
+      trigger.kill();
+      myTemp.kill();
+    };
   }, []);
 
   return (

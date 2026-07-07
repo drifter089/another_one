@@ -1,12 +1,10 @@
-import React, { useRef, useEffect, useLayoutEffect, Suspense } from "react";
+import React, { useRef, Suspense } from "react";
 import PixelDance from "./PixelDance/PixelDance";
 import { Canvas } from "@react-three/fiber";
 
 const PixelPerfectionist = () => {
   const mainContainer = useRef();
   const textRef = useRef();
-
-  const once = useRef(false);
 
   return (
     <div

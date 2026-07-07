@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect } from "react";
 import { Color } from "three";
 import { useFrame, useThree } from "@react-three/fiber";
 import gsap from "gsap";
@@ -11,7 +11,7 @@ const CameraMovement = () => {
   useEffect(() => {
     mainState.gl.setClearColor(new Color(0x000000), 0);
     mainState.camera.position.z = 35;
-  }, []);
+  }, [mainState.gl, mainState.camera.position]);
 
   /**
   mouse based controls
@@ -45,7 +45,7 @@ const CameraMovement = () => {
       x: my_x,
       y: my_y,
     });
-  }, [normalizedMousePos]);
+  }, [normalizedMousePos, mainState.camera.position]);
 
   useFrame(() => {
     mainState.camera.lookAt(new THREE.Vector3(0, 0, 0));

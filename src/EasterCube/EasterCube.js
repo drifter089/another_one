@@ -1,21 +1,11 @@
-import React, {
-  Suspense,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { Suspense, useLayoutEffect, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import ImpossibleCube from "./FoudDimentional/ImpossibleCube";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { Timeline } from "gsap/gsap-core";
 import { DoubleSide } from "three";
 import { Loader } from "@react-three/drei";
 gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(Timeline);
 
 const SinglePlane = React.forwardRef((props, ref) => {
   const cubeRef = useRef();
@@ -49,14 +39,7 @@ const SingleCube = React.forwardRef((props, ref) => {
 });
 
 const EasterCube = () => {
-  const [pinText, setPinText] = useState(false);
-
   const mainContainer = useRef();
-
-  const twoDRef = useRef();
-  const threeDRef = useRef();
-  const fourDRef = useRef();
-  const textRef = useRef();
 
   const rotationAnimationRef = useRef({
     x: 0,
@@ -73,14 +56,18 @@ const EasterCube = () => {
       z: 12,
     });
 
-    ScrollTrigger.create({
+    const trigger = ScrollTrigger.create({
       animation: myTemp,
       trigger: mainContainer.current,
-      // markers: true,
       start: "0% 0%",
       end: "300% 0%",
       scrub: 1,
     });
+
+    return () => {
+      trigger.kill();
+      myTemp.kill();
+    };
   }, []);
 
   return (
@@ -88,7 +75,7 @@ const EasterCube = () => {
       <div className="pannelContainer" ref={mainContainer}>
         <div className="fourDCubeBackground">I have worked with</div>
       </div>
-      <div className="pannelContainer" ref={twoDRef}>
+      <div className="pannelContainer">
         <div className="fourDCubeBackground">
           <div className="bottomBig">2D</div>
         </div>
@@ -102,7 +89,7 @@ const EasterCube = () => {
           </Canvas>
         </div>
       </div>
-      <div className="pannelContainer" ref={threeDRef}>
+      <div className="pannelContainer">
         <div className="fourDCubeBackground">
           <div className="bottomBig">3D</div>
         </div>
@@ -116,12 +103,12 @@ const EasterCube = () => {
           </Canvas>
         </div>
       </div>
-      <div className="pannelContainer" ref={twoDRef}>
+      <div className="pannelContainer">
         <div className="fourDCubeBackground">
           <div className="bottomBig">?????</div>
         </div>
       </div>
-      <div className="pannelContainer" ref={fourDRef}>
+      <div className="pannelContainer">
         <div className="fourDCubeBackground">
           <div
             style={{

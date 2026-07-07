@@ -1,7 +1,6 @@
-import React, { Suspense } from "react";
+import React from "react";
 import SecondCanvas from "./Interactive/SecondCanvas";
 import { Canvas } from "@react-three/fiber";
-import { Loader } from "@react-three/drei";
 
 const InteractiveLove = () => {
   return (

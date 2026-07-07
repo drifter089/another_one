@@ -1,8 +1,9 @@
-import React, { useRef, useEffect, useMemo } from "react";
-import { useFrame, useThree } from "@react-three/fiber";
+import React, { useRef, useEffect, useMemo, useCallback } from "react";
+import { useThree } from "@react-three/fiber";
 import * as THREE from "three";
-import { InstancedRigidBodies, RigidBody } from "@react-three/rapier";
-import { useState } from "react";
+import { RigidBody } from "@react-three/rapier";
+
+const forceConstant = 80;
 
 function CenterObjects({
   count = 12,
@@ -13,9 +14,7 @@ function CenterObjects({
 
   useEffect(() => {
     mainState.gl.setClearColor(new THREE.Color(0x000000), 0);
-  }, []);
-
-  const forceConstant = 80;
+  }, [mainState.gl]);
 
   const rigidRef1 = useRef();
   const rigidRef2 = useRef();
@@ -45,9 +44,9 @@ function CenterObjects({
       rigidRef11,
       rigidRef12,
     ];
-  });
+  }, []);
 
-  function clickHandler() {
+  const clickHandler = useCallback(() => {
     setClickedOnce(true);
     rigidRefsArr.forEach((body) => {
       const x = (Math.random() - 0.5) * forceConstant;
@@ -56,7 +55,7 @@ function CenterObjects({
 
       body.current.applyImpulse({ x: x, y: y, z: z });
     });
-  }
+  }, [setClickedOnce, rigidRefsArr]);
 
   const finalObjects = useMemo(() => {
     const cubes = [];
@@ -84,7 +83,7 @@ function CenterObjects({
     }
 
     return cubes;
-  }, []);
+  }, [count, clickHandler, rigidRefsArr]);
 
   // useEffect(() => {
   //   setTimeout(() => {

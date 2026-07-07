@@ -1,8 +1,5 @@
 import React from "react";
-import { useThree } from "@react-three/fiber";
 import { RigidBody } from "@react-three/rapier";
-import { DoubleSide, AxesHelper } from "three";
-import { useMemo } from "react";
 import { degToRad } from "three/src/math/MathUtils";
 
 const TransparentPhyscisBox = () => {
