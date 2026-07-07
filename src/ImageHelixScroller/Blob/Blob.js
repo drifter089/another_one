@@ -1,13 +1,6 @@
-import React, {
-  useState,
-  useRef,
-  useLayoutEffect,
-  useMemo,
-  useEffect,
-} from "react";
-import { OrbitControls } from "@react-three/drei";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { MathUtils, AxesHelper } from "three";
+import React, { useRef, useMemo } from "react";
+import { useFrame } from "@react-three/fiber";
+import { MathUtils } from "three";
 
 import vertexShader from "./vertexShader";
 import fragmentShader from "./fragmentShader";

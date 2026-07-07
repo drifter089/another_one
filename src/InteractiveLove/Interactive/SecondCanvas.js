@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { Suspense, useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { Sphere } from "@react-three/drei";
 import { Physics, RigidBody } from "@react-three/rapier";
 import { easing } from "maath";

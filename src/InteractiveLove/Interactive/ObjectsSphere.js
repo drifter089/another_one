@@ -12,7 +12,7 @@ function ObjectsSphere({
 
   useEffect(() => {
     mainState.gl.setClearColor(new THREE.Color(0x000000), 0);
-  }, []);
+  }, [mainState.gl]);
 
   const api = useRef();
 
@@ -34,7 +34,6 @@ function ObjectsSphere({
     let tempKey = 0;
 
     for (let i = 0; i < numPerObj; i++) {
-      const ref = React.createRef(null);
       tempKey++;
       cubes.push(
         <instancedMesh args={[undefined, undefined, 1]} key={tempKey}>
@@ -44,7 +43,6 @@ function ObjectsSphere({
       );
     }
     for (let i = 0; i < numPerObj; i++) {
-      const ref = React.createRef(null);
       tempKey++;
       cubes.push(
         <instancedMesh args={[undefined, undefined, 1]} key={tempKey}>
@@ -54,7 +52,6 @@ function ObjectsSphere({
       );
     }
     for (let i = 0; i < numPerObj; i++) {
-      const ref = React.createRef(null);
       tempKey++;
       cubes.push(
         <instancedMesh args={[undefined, undefined, 1]} key={tempKey}>
@@ -64,7 +61,6 @@ function ObjectsSphere({
       );
     }
     for (let i = 0; i < numPerObj; i++) {
-      const ref = React.createRef(null);
       tempKey++;
       cubes.push(
         <instancedMesh args={[undefined, undefined, 1]} key={tempKey}>
@@ -74,7 +70,6 @@ function ObjectsSphere({
       );
     }
     for (let i = 0; i < numPerObj + 2; i++) {
-      const ref = React.createRef(null);
       tempKey++;
       cubes.push(
         <instancedMesh args={[undefined, undefined, 1]} key={tempKey}>
@@ -85,7 +80,7 @@ function ObjectsSphere({
     }
 
     return cubes;
-  }, []);
+  }, [count]);
 
   return (
     <InstancedRigidBodies

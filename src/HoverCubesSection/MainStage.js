@@ -1,81 +1,53 @@
-import React, {
-  useRef,
-  useEffect,
-  useLayoutEffect,
-  useState,
-  useMemo,
-  Suspense,
-} from "react";
-import { Canvas, useThree } from "@react-three/fiber";
-import { AxesHelper, Vector3, DoubleSide } from "three";
-import { degToRad } from "three/src/math/MathUtils";
-import { OrbitControls } from "@react-three/drei";
+import React, { useRef, useEffect, useLayoutEffect, useState, useMemo } from "react";
+import { Canvas } from "@react-three/fiber";
 
 import ClickyCubes from "./ClickyCubes/ClickyCubes";
 
 import gsap from "gsap";
-// import ScrollTrigger from "gsap/ScrollTrigger";
 import { Timeline } from "gsap/gsap-core";
-// gsap.registerPlugin(ScrollTrigger);
 
 const MainStage = () => {
   const [selectedHTML, setSelectedHTML] = useState(-1);
 
-  const textRef1 = React.createRef();
-  const textRef2 = React.createRef();
-  const textRef3 = React.createRef();
-  const textRef4 = React.createRef();
-  const textRef5 = React.createRef();
-  const textRef6 = React.createRef();
+  const textRefArr = useMemo(
+    () => Array.from({ length: 6 }, () => React.createRef()),
+    []
+  );
 
-  const textRefArr = useMemo(() => {
-    return [textRef1, textRef2, textRef3, textRef4, textRef5, textRef6];
-  }, []);
-
-  const m1 = new Timeline({ paused: true });
-  const m2 = new Timeline({ paused: true });
-  const m3 = new Timeline({ paused: true });
-  const m4 = new Timeline({ paused: true });
-  const m5 = new Timeline({ paused: true });
-  const m6 = new Timeline({ paused: true });
-
-  const opacityTimeLineArr = useMemo(() => [m1, m2, m3, m4, m5, m6], []);
-
-  function makeOpacityTimeLine(ref, timeline) {
-    timeline.to(ref.current, {
-      opacity: 1,
-      duration: 0.5,
-      delay: 0.6,
-    });
-  }
-
-  const once = useRef(false);
+  const opacityTimeLineArr = useMemo(
+    () => Array.from({ length: 6 }, () => new Timeline({ paused: true })),
+    []
+  );
 
   const btnRef = useRef();
 
   useLayoutEffect(() => {
-    if (!once.current) {
-      once.current = true;
-      textRefArr.map((ref, i) => {
-        makeOpacityTimeLine(ref, opacityTimeLineArr[i]);
+    textRefArr.forEach((ref, i) => {
+      opacityTimeLineArr[i].to(ref.current, {
+        opacity: 1,
+        duration: 0.5,
+        delay: 0.6,
       });
-    }
-  }, []);
+    });
+
+    return () => {
+      opacityTimeLineArr.forEach((timeline) => timeline.clear());
+    };
+  }, [textRefArr, opacityTimeLineArr]);
 
   useEffect(() => {
-    console.log("selected html", selectedHTML);
-    if (selectedHTML != -1) {
+    const btn = btnRef.current;
+    if (selectedHTML !== -1) {
       opacityTimeLineArr[selectedHTML].play();
-      gsap.to(btnRef.current, { opacity: 1, duration: 0.5 });
+      gsap.to(btn, { opacity: 1, duration: 0.5 });
     }
     return () => {
-      if (selectedHTML != -1) {
+      if (selectedHTML !== -1) {
         opacityTimeLineArr[selectedHTML].reverse();
-        gsap.to(btnRef.current, { opacity: 0, duration: 0.5 });
+        gsap.to(btn, { opacity: 0, duration: 0.5 });
       }
-      console.log("chsnged to html", selectedHTML);
     };
-  }, [selectedHTML]);
+  }, [selectedHTML, opacityTimeLineArr]);
 
   return (
     <>
@@ -108,31 +80,30 @@ const MainStage = () => {
         <Canvas camera={{ position: [0, 0, 20] }}>
           <ClickyCubes selected={selectedHTML} setSelected={setSelectedHTML} />
         </Canvas>
-        <div className="canvasStreach reasonText" ref={textRef1}>
+        <div className="canvasStreach reasonText" ref={textRefArr[0]}>
           I have a vast collection of cat-related programming memes that will
           keep the team motivated.
         </div>
-        <div className="canvasStreach reasonText" ref={textRef2}>
+        <div className="canvasStreach reasonText" ref={textRefArr[1]}>
           I can write code in my sleep, so I'll be able to work on projects
           24/7.
         </div>
-        <div className="canvasStreach reasonText" ref={textRef3}>
+        <div className="canvasStreach reasonText" ref={textRefArr[2]}>
           I never miss an oppurtunity to tell "that's what she said " jokes.
         </div>
-        <div className="canvasStreach reasonText" ref={textRef4}>
+        <div className="canvasStreach reasonText" ref={textRefArr[3]}>
           too good at procrastination and ends up finishing everything at the
           last minute.
         </div>
-        <div className="canvasStreach reasonText" ref={textRef5}>
+        <div className="canvasStreach reasonText" ref={textRefArr[4]}>
           might get too competitive during office game breaks..
         </div>
-        <div className="canvasStreach reasonText" ref={textRef6}>
+        <div className="canvasStreach reasonText" ref={textRefArr[5]}>
           I never feel sleepy during afternoon conference calls.
         </div>
 
         <div
           id="cross"
-          // className="myBtn circle"
           onClick={() => {
             setSelectedHTML(-1);
           }}

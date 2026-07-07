@@ -1,30 +1,6 @@
-import React, {
-  Suspense,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import {
-  OrbitControls,
-  Sparkles,
-  Stage,
-  Torus,
-  Sky,
-  Loader,
-} from "@react-three/drei";
-import {
-  Physics,
-  RigidBody,
-  CuboidCollider,
-  Debug,
-  RigidBodyApi,
-  Attractor,
-  // Vector3Array
-} from "@react-three/rapier";
-import * as THREE from "three";
-import { DoubleSide } from "three";
+import React, { Suspense, useEffect, useRef, useState } from "react";
+import { Canvas } from "@react-three/fiber";
+import { Physics } from "@react-three/rapier";
 import CenterObjects from "./CenterObjects";
 import TransparentPhyscisBox from "./TransparentPhyscisBox";
 import CameraMovement from "./CameraMovement";
@@ -38,7 +14,6 @@ function ZeroGBox() {
 
   useEffect(() => {
     if (clickedOnce) {
-      console.log("ran");
       gsap.to(clickMeText.current, {
         opacity: 0,
         duration: 0.3,

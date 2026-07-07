@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import BlackTextSection from "./BlackTextSection";
 import TransparentText from "./TransparentText";
 

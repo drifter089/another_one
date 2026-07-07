@@ -24,8 +24,7 @@ const BlackTextSection = () => {
   }, [hideText]);
 
   useLayoutEffect(() => {
-    ScrollTrigger.create({
-      // animation: myTemp,
+    const trigger = ScrollTrigger.create({
       trigger: lastImgRef.current,
 
       start: "0% 50%",
@@ -49,6 +48,10 @@ const BlackTextSection = () => {
         // console.log("leaveback");
       },
     });
+
+    return () => {
+      trigger.kill();
+    };
   }, []);
 
   return (
@@ -85,6 +88,7 @@ const BlackTextSection = () => {
           ref={lastImgRef}
         >
           <img
+            alt=""
             src={sexy_gradient}
             style={{
               display: "inline-block",

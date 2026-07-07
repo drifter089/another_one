@@ -1,13 +1,10 @@
-import { OrbitControls } from "@react-three/drei";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { useMemo, useRef, useEffect } from "react";
-import * as THREE from "three";
 import { Vector2, Color } from "three";
 import { useNormalizedMousePosition } from "../../components/normalizedMousePosHook";
 
 import vertexShader from "./vertexShader";
 import fragmentShader from "./fragmentShader";
-import { useState } from "react";
 
 const CustomGeometryParticles = (props) => {
   /**
@@ -18,34 +15,10 @@ const CustomGeometryParticles = (props) => {
   useEffect(() => {
     mainState.gl.setClearColor(new Color(0x000000));
     mainState.camera.position.z = 75;
-  }, []);
-  const { count } = props;
+  }, [mainState.gl, mainState.camera.position]);
 
   // This reference gives us direct access to our points
   const points = useRef();
-
-  // Generate our positions attributes array
-  const particlesPosition = useMemo(() => {
-    const positions = new Float32Array(count * 3);
-    const distance = 90;
-
-    for (let i = 0; i < count; i++) {
-      //   const theta = THREE.MathUtils.randFloatSpread(360);
-      //   const phi = THREE.MathUtils.randFloatSpread(360);
-      for (let j = 0; j < count; j++) {
-        // let x = (distance * Math.random() - distance / 2) * 1.5;
-        // let y = distance * Math.random() - distance / 2;
-        // let z = 0;
-
-        let x = i;
-        let y = j;
-        let z = 0;
-        positions.set([x, y, z], i * 3);
-      }
-    }
-
-    return positions;
-  }, [count]);
 
   const uniforms = useMemo(
     () => ({

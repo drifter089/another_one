@@ -1,5 +1,5 @@
 import { OrbitControls } from "@react-three/drei";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import React, { useRef, useMemo, useEffect } from "react";
 import { degToRad } from "three/src/math/MathUtils";
 import Portal from "./Portal";

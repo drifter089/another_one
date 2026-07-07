@@ -1,12 +1,5 @@
-import React, {
-  useState,
-  useRef,
-  useLayoutEffect,
-  useMemo,
-  useEffect,
-} from "react";
-import { useThree } from "@react-three/fiber";
-import { AxesHelper, Vector3, DoubleSide } from "three";
+import React, { useRef, useMemo } from "react";
+import { Vector3, DoubleSide } from "three";
 import { degToRad } from "three/src/math/MathUtils";
 import { useTexture } from "@react-three/drei";
 
@@ -17,11 +10,6 @@ function ImageMaterial({ imagee }) {
 
 const PicturePlanes = (props) => {
   const planeRef = useRef();
-
-  const { scene, camera } = useThree();
-  // const axesHelper = new AxesHelper(10);
-  // axesHelper.setColors("red", "green", "blue");
-  // scene.add(axesHelper);
 
   const finalObjects = useMemo(() => {
     const cubes = [];
@@ -35,11 +23,7 @@ const PicturePlanes = (props) => {
     let yOffSet = 3;
     let yCurrent = 4 * yOffSet;
 
-    let refArr = [];
-
     for (let i = 0; i < numOfObj; i++) {
-      const ref = React.createRef(null);
-
       tempKey++;
 
       let x = radius * Math.cos(degToRad(theta));
@@ -84,7 +68,7 @@ const PicturePlanes = (props) => {
     }
 
     return cubes;
-  }, []);
+  }, [props.radius, props.imagee]);
 
   return <>{finalObjects}</>;
 };

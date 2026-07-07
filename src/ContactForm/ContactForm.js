@@ -2,7 +2,6 @@ import React from "react";
 
 const ContactForm = () => {
   function pdfDownloadHandler() {
-    console.log("this ran");
     let alink = document.createElement("a");
     alink.href =
       "https://drive.google.com/uc?export=download&id=186HbGY-MI-B2ka4gLVzsu6N2E0ud5d8f";
