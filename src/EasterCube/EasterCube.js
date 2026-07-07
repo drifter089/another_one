@@ -4,7 +4,6 @@ import ImpossibleCube from "./FoudDimentional/ImpossibleCube";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { DoubleSide } from "three";
-import { Loader } from "@react-three/drei";
 gsap.registerPlugin(ScrollTrigger);
 
 const SinglePlane = React.forwardRef((props, ref) => {
@@ -83,7 +82,6 @@ const EasterCube = () => {
         <div className="fourDCubeContainer">
           <Canvas camera={{ position: [0, 0, 10] }}>
             <Suspense fallback={null}>
-              <Loader />
               <SinglePlane ref={rotationAnimationRef} />
             </Suspense>
           </Canvas>
@@ -98,7 +96,6 @@ const EasterCube = () => {
           <Canvas camera={{ position: [0, 0, 10] }}>
             <Suspense fallback={null}>
               <SingleCube ref={rotationAnimationRef} />
-              <Loader />
             </Suspense>
           </Canvas>
         </div>
