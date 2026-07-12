@@ -59,6 +59,10 @@ const ImageHelixScroller = () => {
   const radius = 7;
   const yOffset = 3;
 
+  // ponytail: read once at mount; no resize handling — a rotated phone
+  // just keeps the slightly wider framing until reload
+  const isPhone = window.matchMedia("(max-width: 820px)").matches;
+
   const animationDataRef = useRef({
     rotation: {
       y: 0,
@@ -133,7 +137,7 @@ const ImageHelixScroller = () => {
         <div className="helixCanvasContainer" ref={canvasDivRef}>
           <LazyMount>
             <Canvas
-              camera={{ position: [12.0, 0, 0] }}
+              camera={{ position: [isPhone ? 15 : 12.0, 0, 0] }}
               style={{
                 width: "100vw",
                 height: "100vh",
