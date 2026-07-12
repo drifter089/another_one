@@ -25,7 +25,7 @@ const ContactForm = () => {
         </div>
       </div>
       <div className="horizontalLine"></div>
-      <div className="bottomText">Made by Akshat Mittal in React.js</div>
+      <div className="bottomText">Developed by Akshat Mittal · 2022</div>
     </div>
   );
 };

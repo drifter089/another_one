@@ -15,7 +15,7 @@ const GradientScroll = () => {
       <BlackTextSection />
       <div
         style={{
-          height: "80vh",
+          height: "40vh",
         }}
         className="pannelContainer"
       ></div>

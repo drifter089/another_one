@@ -1,6 +1,7 @@
 import React from "react";
 import SecondCanvas from "./Interactive/SecondCanvas";
 import { Canvas } from "@react-three/fiber";
+import LazyMount from "../components/LazyMount";
 
 const InteractiveLove = () => {
   return (
@@ -25,15 +26,17 @@ const InteractiveLove = () => {
           height: "250vh",
         }}
       >
-        <Canvas
-          shadows
-          camera={{ position: [0, 0, 80], fov: 35, near: 1, far: 200 }}
-          onCreated={(state) => {
-            state.scene.backgroundBlurriness = 0.4;
-          }}
-        >
-          <SecondCanvas />
-        </Canvas>
+        <LazyMount>
+          <Canvas
+            shadows
+            camera={{ position: [0, 0, 80], fov: 35, near: 1, far: 200 }}
+            onCreated={(state) => {
+              state.scene.backgroundBlurriness = 0.4;
+            }}
+          >
+            <SecondCanvas />
+          </Canvas>
+        </LazyMount>
       </div>
     </div>
   );

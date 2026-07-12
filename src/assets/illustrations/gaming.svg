@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <rect width="900" height="600" fill="#0b0b12"/>
+  <rect x="10" y="10" width="880" height="580" rx="24" fill="none" stroke="#80ff80" stroke-width="3" opacity="0.4"/>
+  <!-- controller body -->
+  <path d="M290 220 Q450 190 610 220 Q700 230 710 330 Q716 420 660 430 Q610 438 580 380 Q450 400 320 380 Q290 438 240 430 Q184 420 190 330 Q200 230 290 220 Z" fill="#1a1a2e" stroke="#8080ff" stroke-width="5"/>
+  <!-- dpad -->
+  <rect x="290" y="270" width="36" height="100" rx="8" fill="#8080ff"/>
+  <rect x="258" y="302" width="100" height="36" rx="8" fill="#8080ff"/>
+  <!-- buttons -->
+  <circle cx="590" cy="270" r="18" fill="#80ff80"/>
+  <circle cx="632" cy="312" r="18" fill="#ff8080"/>
+  <circle cx="548" cy="312" r="18" fill="#c060ff"/>
+  <circle cx="590" cy="354" r="18" fill="#3a5fff"/>
+  <!-- start/select -->
+  <rect x="420" y="290" width="28" height="12" rx="6" fill="#f0ffff" opacity="0.7"/>
+  <rect x="456" y="290" width="28" height="12" rx="6" fill="#f0ffff" opacity="0.7"/>
+  <!-- pixel heart above -->
+  <g fill="#ff8080">
+    <rect x="420" y="120" width="16" height="16"/>
+    <rect x="436" y="104" width="16" height="16"/>
+    <rect x="452" y="120" width="16" height="16"/>
+    <rect x="468" y="104" width="16" height="16"/>
+    <rect x="484" y="120" width="16" height="16"/>
+    <rect x="436" y="136" width="48" height="16"/>
+    <rect x="452" y="152" width="16" height="16"/>
+  </g>
+</svg>

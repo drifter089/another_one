@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <rect width="900" height="600" fill="#0b0b12"/>
+  <rect x="10" y="10" width="880" height="580" rx="24" fill="none" stroke="#80ff80" stroke-width="3" opacity="0.4"/>
+  <!-- sun -->
+  <circle cx="700" cy="150" r="46" fill="#ff8080"/>
+  <!-- back mountain -->
+  <path d="M180 460 L420 160 L640 460 Z" fill="#8080ff"/>
+  <path d="M420 160 L470 224 L440 220 L416 244 L390 216 L370 224 Z" fill="#f0ffff"/>
+  <!-- front mountain -->
+  <path d="M420 460 L610 240 L790 460 Z" fill="#c060ff"/>
+  <path d="M610 240 L648 288 L622 282 L600 302 L578 284 Z" fill="#f0ffff"/>
+  <!-- flag on peak -->
+  <line x1="420" y1="160" x2="420" y2="110" stroke="#f0ffff" stroke-width="5" stroke-linecap="round"/>
+  <path d="M420 110 L456 122 L420 134 Z" fill="#80ff80"/>
+  <!-- ground + trail -->
+  <path d="M110 460 L790 460" stroke="#80ff80" stroke-width="6" stroke-linecap="round"/>
+  <path d="M200 460 Q320 420 420 300" stroke="#f0ffff" stroke-width="5" fill="none" stroke-dasharray="2 18" stroke-linecap="round"/>
+</svg>

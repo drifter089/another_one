@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <rect width="900" height="600" fill="#0b0b12"/>
+  <rect x="10" y="10" width="880" height="580" rx="24" fill="none" stroke="#3a5fff" stroke-width="3" opacity="0.5"/>
+  <!-- mic head -->
+  <circle cx="400" cy="220" r="72" fill="#8080ff"/>
+  <g stroke="#0b0b12" stroke-width="4" opacity="0.6">
+    <line x1="340" y1="196" x2="460" y2="196"/>
+    <line x1="332" y1="220" x2="468" y2="220"/>
+    <line x1="340" y1="244" x2="460" y2="244"/>
+    <line x1="376" y1="156" x2="376" y2="284"/>
+    <line x1="400" y1="150" x2="400" y2="290"/>
+    <line x1="424" y1="156" x2="424" y2="284"/>
+  </g>
+  <!-- mic body -->
+  <path d="M372 292 L428 292 L414 420 L386 420 Z" fill="#c060ff"/>
+  <!-- stand -->
+  <line x1="400" y1="420" x2="400" y2="500" stroke="#f0ffff" stroke-width="8" stroke-linecap="round"/>
+  <line x1="340" y1="500" x2="460" y2="500" stroke="#f0ffff" stroke-width="8" stroke-linecap="round"/>
+  <!-- sound arcs -->
+  <path d="M520 160 q40 60 0 120" stroke="#80ff80" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.9"/>
+  <path d="M570 130 q60 90 0 180" stroke="#80ff80" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.55"/>
+  <!-- notes -->
+  <g fill="#ff8080">
+    <circle cx="650" cy="300" r="14"/>
+    <rect x="660" y="230" width="6" height="70" rx="3"/>
+    <path d="M660 230 q26 6 34 26 q-6 -4 -34 -8 Z"/>
+  </g>
+  <g fill="#f0ffff" opacity="0.85">
+    <circle cx="710" cy="210" r="10"/>
+    <rect x="717" y="160" width="5" height="50" rx="2.5"/>
+  </g>
+</svg>
