@@ -53,6 +53,60 @@ code {
   max-width: 90%;
 }
 
+.logo3d {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.logo3d > div:first-child {
+  width: 64px !important;
+  height: 64px !important;
+  flex: none;
+}
+
+.logoLabel {
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 4vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 7;
+  pointer-events: none;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  opacity: 0.7;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+.scrollHint .scrollHintArrow {
+  font-size: 22px;
+  line-height: 1;
+}
+
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 10px);
+  }
+}
+
 .canvasStreach {
   position: absolute;
   top: 0;
@@ -95,7 +149,7 @@ code {
 }
 
 .transtext {
-  height: 200vh;
+  height: 120vh;
   width: 100vw;
   background-color: #c060ff;
   opacity: 0.3;

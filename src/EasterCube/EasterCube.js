@@ -1,6 +1,7 @@
 import React, { Suspense, useLayoutEffect, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import ImpossibleCube from "./FoudDimentional/ImpossibleCube";
+import LazyMount from "../components/LazyMount";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { DoubleSide } from "three";
@@ -80,11 +81,13 @@ const EasterCube = () => {
         </div>
 
         <div className="fourDCubeContainer">
-          <Canvas camera={{ position: [0, 0, 10] }}>
-            <Suspense fallback={null}>
-              <SinglePlane ref={rotationAnimationRef} />
-            </Suspense>
-          </Canvas>
+          <LazyMount>
+            <Canvas camera={{ position: [0, 0, 10] }}>
+              <Suspense fallback={null}>
+                <SinglePlane ref={rotationAnimationRef} />
+              </Suspense>
+            </Canvas>
+          </LazyMount>
         </div>
       </div>
       <div className="pannelContainer">
@@ -93,11 +96,13 @@ const EasterCube = () => {
         </div>
 
         <div className="fourDCubeContainer">
-          <Canvas camera={{ position: [0, 0, 10] }}>
-            <Suspense fallback={null}>
-              <SingleCube ref={rotationAnimationRef} />
-            </Suspense>
-          </Canvas>
+          <LazyMount>
+            <Canvas camera={{ position: [0, 0, 10] }}>
+              <Suspense fallback={null}>
+                <SingleCube ref={rotationAnimationRef} />
+              </Suspense>
+            </Canvas>
+          </LazyMount>
         </div>
       </div>
       <div className="pannelContainer">
@@ -117,16 +122,18 @@ const EasterCube = () => {
         </div>
 
         <div className="fourDCubeContainer">
-          <Suspense fallback={null}>
-            <Canvas
-              camera={{ position: [0, 0, 10] }}
-              style={{
-                zIndex: 4,
-              }}
-            >
-              <ImpossibleCube />
-            </Canvas>
-          </Suspense>
+          <LazyMount>
+            <Suspense fallback={null}>
+              <Canvas
+                camera={{ position: [0, 0, 10] }}
+                style={{
+                  zIndex: 4,
+                }}
+              >
+                <ImpossibleCube />
+              </Canvas>
+            </Suspense>
+          </LazyMount>
         </div>
       </div>
     </>

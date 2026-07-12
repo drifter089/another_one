@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useLayoutEffect, useState, useMemo } from "re
 import { Canvas } from "@react-three/fiber";
 
 import ClickyCubes from "./ClickyCubes/ClickyCubes";
+import LazyMount from "../components/LazyMount";
 
 import gsap from "gsap";
 import { Timeline } from "gsap/gsap-core";
@@ -77,9 +78,14 @@ const MainStage = () => {
           zIndex: 5,
         }}
       >
-        <Canvas camera={{ position: [0, 0, 20] }}>
-          <ClickyCubes selected={selectedHTML} setSelected={setSelectedHTML} />
-        </Canvas>
+        <LazyMount>
+          <Canvas camera={{ position: [0, 0, 20] }}>
+            <ClickyCubes
+              selected={selectedHTML}
+              setSelected={setSelectedHTML}
+            />
+          </Canvas>
+        </LazyMount>
         <div className="canvasStreach reasonText" ref={textRefArr[0]}>
           I have a vast collection of cat-related programming memes that will
           keep the team motivated.

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <rect width="900" height="600" fill="#0b0b12"/>
+  <rect x="10" y="10" width="880" height="580" rx="24" fill="none" stroke="#8080ff" stroke-width="3" opacity="0.4"/>
+  <!-- board -->
+  <g opacity="0.9">
+    <rect x="250" y="420" width="400" height="60" rx="6" fill="#1a1a2e"/>
+    <rect x="250" y="420" width="50" height="60" fill="#8080ff" opacity="0.55"/>
+    <rect x="350" y="420" width="50" height="60" fill="#8080ff" opacity="0.55"/>
+    <rect x="450" y="420" width="50" height="60" fill="#8080ff" opacity="0.55"/>
+    <rect x="550" y="420" width="50" height="60" fill="#8080ff" opacity="0.55"/>
+  </g>
+  <!-- queen -->
+  <g fill="#ff8080">
+    <circle cx="370" cy="180" r="14"/>
+    <path d="M330 230 L345 200 L360 226 L370 196 L380 226 L395 200 L410 230 L400 300 L340 300 Z"/>
+    <rect x="332" y="306" width="76" height="16" rx="6"/>
+    <path d="M324 330 L416 330 L428 396 L312 396 Z"/>
+  </g>
+  <!-- pawn -->
+  <g fill="#80ff80">
+    <circle cx="530" cy="270" r="26"/>
+    <path d="M512 300 L548 300 L556 356 L504 356 Z"/>
+    <rect x="496" y="362" width="68" height="14" rx="6"/>
+    <path d="M492 382 L568 382 L576 420 L484 420 Z" transform="translate(0,-24)"/>
+  </g>
+  <!-- floating move dots -->
+  <circle cx="640" cy="240" r="8" fill="#c060ff" opacity="0.8"/>
+  <circle cx="672" cy="200" r="6" fill="#c060ff" opacity="0.55"/>
+  <circle cx="700" cy="164" r="4" fill="#c060ff" opacity="0.35"/>
+</svg>

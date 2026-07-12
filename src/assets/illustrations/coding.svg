@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <rect width="900" height="600" fill="#0b0b12"/>
+  <rect x="10" y="10" width="880" height="580" rx="24" fill="none" stroke="#c060ff" stroke-width="3" opacity="0.4"/>
+  <!-- editor window -->
+  <rect x="230" y="140" width="440" height="320" rx="18" fill="#1a1a2e" stroke="#8080ff" stroke-width="4"/>
+  <circle cx="270" cy="176" r="9" fill="#ff8080"/>
+  <circle cx="300" cy="176" r="9" fill="#ffd080"/>
+  <circle cx="330" cy="176" r="9" fill="#80ff80"/>
+  <line x1="230" y1="204" x2="670" y2="204" stroke="#8080ff" stroke-width="3" opacity="0.5"/>
+  <!-- code lines -->
+  <g stroke-linecap="round">
+    <line x1="270" y1="244" x2="420" y2="244" stroke="#c060ff" stroke-width="12"/>
+    <line x1="300" y1="282" x2="520" y2="282" stroke="#80ff80" stroke-width="12"/>
+    <line x1="300" y1="320" x2="460" y2="320" stroke="#8080ff" stroke-width="12"/>
+    <line x1="330" y1="358" x2="560" y2="358" stroke="#ff8080" stroke-width="12"/>
+    <line x1="270" y1="396" x2="380" y2="396" stroke="#f0ffff" stroke-width="12" opacity="0.7"/>
+  </g>
+  <!-- floating brackets -->
+  <text x="150" y="330" font-family="monospace" font-size="90" fill="#80ff80" opacity="0.8">&#123;</text>
+  <text x="700" y="330" font-family="monospace" font-size="90" fill="#ff8080" opacity="0.8">&#125;</text>
+</svg>

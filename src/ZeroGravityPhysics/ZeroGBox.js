@@ -4,6 +4,7 @@ import { Physics } from "@react-three/rapier";
 import CenterObjects from "./CenterObjects";
 import TransparentPhyscisBox from "./TransparentPhyscisBox";
 import CameraMovement from "./CameraMovement";
+import LazyMount from "../components/LazyMount";
 import gsap from "gsap";
 
 function ZeroGBox() {
@@ -36,16 +37,22 @@ function ZeroGBox() {
         }}
         className="canvasStreach"
       >
-        <Canvas shadows dpr={[1, 2]} camera={{ fov: 50, position: [0, 0, 10] }}>
-          <Physics colliders={"cuboid"} gravity={[0, 0, 0]}>
-            <Suspense fallback={null}>
-              <CenterObjects setClickedOnce={setClickedOnce} />
-              <TransparentPhyscisBox />
-            </Suspense>
-          </Physics>
-          <CameraMovement />
-          {/* <OrbitControls /> */}
-        </Canvas>
+        <LazyMount>
+          <Canvas
+            shadows
+            dpr={[1, 2]}
+            camera={{ fov: 50, position: [0, 0, 10] }}
+          >
+            <Physics colliders={"cuboid"} gravity={[0, 0, 0]}>
+              <Suspense fallback={null}>
+                <CenterObjects setClickedOnce={setClickedOnce} />
+                <TransparentPhyscisBox />
+              </Suspense>
+            </Physics>
+            <CameraMovement />
+            {/* <OrbitControls /> */}
+          </Canvas>
+        </LazyMount>
       </div>
       <div
         style={{
@@ -67,6 +74,10 @@ function ZeroGBox() {
         ref={mainText}
       >
         Meet your next creative developer
+      </div>
+      <div className="scrollHint">
+        scroll
+        <div className="scrollHintArrow">↓</div>
       </div>
     </div>
   );

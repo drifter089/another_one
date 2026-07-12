@@ -11,12 +11,14 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import ImageHelixScroller from "./ImageHelixScroller/ImageHelixScroller";
 import ZeroGBox from "./ZeroGravityPhysics/ZeroGBox";
 import MainStage from "./HoverCubesSection/MainStage";
+import Logo3D from "./components/Logo3D";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   return (
     <>
+      <Logo3D />
       <ZeroGBox />
       <PixelPerfectionist />
       <GradientScroll />

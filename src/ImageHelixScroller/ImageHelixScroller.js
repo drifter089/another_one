@@ -8,21 +8,32 @@ import React, {
 import { Canvas, useFrame } from "@react-three/fiber";
 import PicturePlanes from "./PicturePlanes";
 import { degToRad } from "three/src/math/MathUtils";
-import books from ".././assets/images/books.jpg";
-import chess from ".././assets/images/chess.jpg";
-import games from ".././assets/images/games.jpg";
-import stars from ".././assets/images/stars.jpg";
-import singing from ".././assets/images/singing.jpg";
-import hinking from ".././assets/images/hiking.jpg";
-import sunset from ".././assets/images/sunset.jpg";
+import reading from ".././assets/illustrations/reading.svg";
+import chess from ".././assets/illustrations/chess.svg";
+import gaming from ".././assets/illustrations/gaming.svg";
+import stargazing from ".././assets/illustrations/stargazing.svg";
+import singing from ".././assets/illustrations/singing.svg";
+import hiking from ".././assets/illustrations/hiking.svg";
+import sunset from ".././assets/illustrations/sunset.svg";
+import coding from ".././assets/illustrations/coding.svg";
 
 import Blob from "./Blob/Blob";
+import LazyMount from "../components/LazyMount";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const helixImages = [books, chess, stars, games, sunset, singing, hinking, chess];
+const helixImages = [
+  reading,
+  chess,
+  stargazing,
+  gaming,
+  sunset,
+  singing,
+  hiking,
+  coding,
+];
 
 const AnimationStage = React.forwardRef(({ radius, yOffset }, ref) => {
   const groupRef = useRef();
@@ -120,23 +131,25 @@ const ImageHelixScroller = () => {
 
       <div className="pannelContainer" ref={canvasRelativeParentRef}>
         <div className="helixCanvasContainer" ref={canvasDivRef}>
-          <Canvas
-            camera={{ position: [12.0, 0, 0] }}
-            style={{
-              width: "100vw",
-              height: "100vh",
-              zIndex: 10,
-            }}
-          >
-            <Suspense fallback={null}>
-              <Blob />
-              <AnimationStage
-                radius={radius}
-                yOffset={yOffset}
-                ref={animationDataRef}
-              />
-            </Suspense>
-          </Canvas>
+          <LazyMount>
+            <Canvas
+              camera={{ position: [12.0, 0, 0] }}
+              style={{
+                width: "100vw",
+                height: "100vh",
+                zIndex: 10,
+              }}
+            >
+              <Suspense fallback={null}>
+                <Blob />
+                <AnimationStage
+                  radius={radius}
+                  yOffset={yOffset}
+                  ref={animationDataRef}
+                />
+              </Suspense>
+            </Canvas>
+          </LazyMount>
         </div>
       </div>
       <div className="pannelContainer"></div>

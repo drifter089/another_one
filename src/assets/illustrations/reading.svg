@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <rect width="900" height="600" fill="#0b0b12"/>
+  <rect x="10" y="10" width="880" height="580" rx="24" fill="none" stroke="#ff8080" stroke-width="3" opacity="0.4"/>
+  <!-- book stack -->
+  <rect x="270" y="380" width="360" height="52" rx="8" fill="#8080ff"/>
+  <rect x="300" y="322" width="330" height="52" rx="8" fill="#80ff80"/>
+  <rect x="282" y="264" width="310" height="52" rx="8" fill="#ff8080"/>
+  <!-- page edges -->
+  <rect x="612" y="390" width="10" height="32" rx="3" fill="#f0ffff" opacity="0.8"/>
+  <rect x="612" y="332" width="10" height="32" rx="3" fill="#f0ffff" opacity="0.8"/>
+  <rect x="574" y="274" width="10" height="32" rx="3" fill="#f0ffff" opacity="0.8"/>
+  <!-- open book on top -->
+  <path d="M330 240 Q400 210 450 236 Q500 210 570 240 L570 250 Q500 222 450 248 Q400 222 330 250 Z" fill="#f0ffff" opacity="0.9"/>
+  <path d="M450 236 L450 248" stroke="#0b0b12" stroke-width="4"/>
+  <!-- floating sparkles -->
+  <path d="M660 200 l5 15 15 5 -15 5 -5 15 -5 -15 -15 -5 15 -5 Z" fill="#c060ff"/>
+  <path d="M700 300 l4 12 12 4 -12 4 -4 12 -4 -12 -12 -4 12 -4 Z" fill="#80ff80" opacity="0.8"/>
+  <path d="M240 220 l4 12 12 4 -12 4 -4 12 -4 -12 -12 -4 12 -4 Z" fill="#8080ff" opacity="0.8"/>
+  <!-- bookmark -->
+  <path d="M540 264 L540 224 L564 224 L564 264 L552 250 Z" fill="#c060ff"/>
+</svg>

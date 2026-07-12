@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <defs>
+    <linearGradient id="sunset_sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c060ff"/>
+      <stop offset="100%" stop-color="#ff8080"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" fill="#0b0b12"/>
+  <rect x="10" y="10" width="880" height="580" rx="24" fill="none" stroke="#ff8080" stroke-width="3" opacity="0.4"/>
+  <!-- sun -->
+  <path d="M310 340 A140 140 0 0 1 590 340 Z" fill="url(#sunset_sun)"/>
+  <!-- horizon -->
+  <line x1="120" y1="340" x2="780" y2="340" stroke="#8080ff" stroke-width="6" stroke-linecap="round"/>
+  <!-- reflection stripes -->
+  <line x1="330" y1="380" x2="570" y2="380" stroke="#ff8080" stroke-width="10" stroke-linecap="round" opacity="0.6"/>
+  <line x1="370" y1="416" x2="530" y2="416" stroke="#ff8080" stroke-width="10" stroke-linecap="round" opacity="0.4"/>
+  <line x1="405" y1="452" x2="495" y2="452" stroke="#ff8080" stroke-width="10" stroke-linecap="round" opacity="0.25"/>
+  <!-- birds -->
+  <path d="M300 180 q14 -14 28 0 q14 -14 28 0" stroke="#f0ffff" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <path d="M600 140 q11 -11 22 0 q11 -11 22 0" stroke="#f0ffff" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <!-- clouds -->
+  <path d="M170 240 h90" stroke="#80ff80" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+  <path d="M660 220 h80" stroke="#80ff80" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+</svg>

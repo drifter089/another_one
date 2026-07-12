@@ -56,7 +56,6 @@ const BlackTextSection = () => {
 
   return (
     <>
-      <div className="pannelContainer"></div>
       <div style={{ position: "relative" }}>
         <>
           <div
